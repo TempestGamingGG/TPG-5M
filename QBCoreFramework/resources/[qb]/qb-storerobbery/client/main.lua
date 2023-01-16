@@ -65,7 +65,7 @@ CreateThread(function()
                                         TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
                                     end
                                     if math.random(100) <= 50 then
-                                        TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
+                                        -- TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
                                     end
                                     if Config.Safes[safe].type == "keypad" then
                                         SendNUIMessage({
@@ -282,7 +282,7 @@ RegisterNUICallback('success', function(_, cb)
         end)
         CreateThread(function()
             while openingDoor do
-                TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
+                -- TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
                 Wait(10000)
             end
         end)

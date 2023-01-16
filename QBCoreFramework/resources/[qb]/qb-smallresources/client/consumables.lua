@@ -159,7 +159,7 @@ RegisterNetEvent('consumables:client:Eat', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent("consumables:server:addHunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Config.ConsumablesEat[itemName])
-        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+        -- TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
     end)
 end)
 
@@ -189,7 +189,7 @@ RegisterNetEvent('consumables:client:DrinkAlcohol', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerServerEvent("consumables:server:drinkAlcohol", itemName)
         TriggerServerEvent("consumables:server:addThirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + Config.ConsumablesAlcohol[itemName])
-        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+        -- TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
         alcoholCount += 1
         AlcoholLoop()
         if alcoholCount > 1 and alcoholCount < 4 then

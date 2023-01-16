@@ -49,7 +49,7 @@ RegisterNetEvent('hospital:client:UseIfaks', function()
         StopAnimTask(ped, "mp_suicide", "pill", 1.0)
         TriggerServerEvent("hospital:server:removeIfaks")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["ifaks"], "remove")
-        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        -- TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
         SetEntityHealth(ped, GetEntityHealth(ped) + 10)
         if painkillerAmount < 3 then
             painkillerAmount = painkillerAmount + 1

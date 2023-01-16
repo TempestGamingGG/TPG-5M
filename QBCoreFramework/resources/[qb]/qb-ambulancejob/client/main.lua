@@ -588,7 +588,7 @@ RegisterNetEvent('hospital:client:Revive', function()
     SetPlayerSprint(PlayerId(), true)
     ResetAll()
     ResetPedMovementClipset(player, 0.0)
-    TriggerServerEvent('hud:server:RelieveStress', 100)
+    -- TriggerServerEvent('hud:server:RelieveStress', 100)
     TriggerServerEvent("hospital:server:SetDeathStatus", false)
     TriggerServerEvent("hospital:server:SetLaststandStatus", false)
     emsNotified = false

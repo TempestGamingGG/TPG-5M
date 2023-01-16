@@ -37,7 +37,7 @@ end
 --- This will be called each 10 seconds whilst drilling a safety deposit box
 --- @return nil
 function Config.OnDrillingAction()
-    TriggerServerEvent('hud:server:GainStress', math.random(4, 8))
+    -- TriggerServerEvent('hud:server:GainStress', math.random(4, 8))
 end
 
 --- This is triggered whenever a robbery call is made by the alarm of a bank
