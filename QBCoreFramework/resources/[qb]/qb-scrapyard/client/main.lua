@@ -6,19 +6,19 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     TriggerServerEvent("qb-scrapyard:server:LoadVehicleList")
 end)
 
-CreateThread(function()
-    for id in pairs(Config.Locations) do
-        local blip = AddBlipForCoord(Config.Locations[id]["main"].x, Config.Locations[id]["main"].y, Config.Locations[id]["main"].z)
-        SetBlipSprite(blip, 380)
-        SetBlipDisplay(blip, 4)
-        SetBlipScale(blip, 0.7)
-        SetBlipAsShortRange(blip, true)
-        SetBlipColour(blip, 9)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName(Lang:t('text.scrapyard'))
-        EndTextCommandSetBlipName(blip)
-    end
-end)
+-- CreateThread(function()
+--     for id in pairs(Config.Locations) do
+--         local blip = AddBlipForCoord(Config.Locations[id]["main"].x, Config.Locations[id]["main"].y, Config.Locations[id]["main"].z)
+--         SetBlipSprite(blip, 380)
+--         SetBlipDisplay(blip, 4)
+--         SetBlipScale(blip, 0.7)
+--         SetBlipAsShortRange(blip, true)
+--         SetBlipColour(blip, 9)
+--         BeginTextCommandSetBlipName("STRING")
+--         AddTextComponentSubstringPlayerName(Lang:t('text.scrapyard'))
+--         EndTextCommandSetBlipName(blip)
+--     end
+-- end)
 
 local listen = false
 local function KeyListener(type)
@@ -168,9 +168,9 @@ function ScrapVehicle()
                                 SetEntityAsMissionEntity(vehicle, true, true)
                                 DeleteVehicle(vehicle)
                                 isBusy = false
-                            end, function() -- Cancel
-                                isBusy = false
-                                QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                            -- end, function() -- Cancel
+                            --     isBusy = false
+                            --     QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
                             end)
                         else
                             QBCore.Functions.Notify(Lang:t('error.smash_own'), "error")

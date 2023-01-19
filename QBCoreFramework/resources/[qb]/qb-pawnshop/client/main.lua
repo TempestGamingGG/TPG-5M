@@ -5,19 +5,19 @@ local canTake = false
 local meltTime
 local meltedItem = {}
 
-CreateThread(function()
-    for _, value in pairs(Config.PawnLocation) do
-        local blip = AddBlipForCoord(value.coords.x, value.coords.y, value.coords.z)
-        SetBlipSprite(blip, 431)
-        SetBlipDisplay(blip, 4)
-        SetBlipScale(blip, 0.7)
-        SetBlipAsShortRange(blip, true)
-        SetBlipColour(blip, 5)
-        BeginTextCommandSetBlipName('STRING')
-        AddTextComponentSubstringPlayerName(Lang:t('info.title'))
-        EndTextCommandSetBlipName(blip)
-    end
-end)
+-- CreateThread(function()
+--     for _, value in pairs(Config.PawnLocation) do
+--         local blip = AddBlipForCoord(value.coords.x, value.coords.y, value.coords.z)
+--         SetBlipSprite(blip, 431)
+--         SetBlipDisplay(blip, 4)
+--         SetBlipScale(blip, 0.7)
+--         SetBlipAsShortRange(blip, true)
+--         SetBlipColour(blip, 5)
+--         BeginTextCommandSetBlipName('STRING')
+--         AddTextComponentSubstringPlayerName(Lang:t('info.title'))
+--         EndTextCommandSetBlipName(blip)
+--     end
+-- end)
 
 CreateThread(function()
     if Config.UseTarget then

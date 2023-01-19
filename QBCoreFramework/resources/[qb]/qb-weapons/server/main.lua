@@ -313,15 +313,15 @@ end, "god")
 
 -- AMMO
 QBCore.Functions.CreateUseableItem('pistol_ammo', function(source, item)
-    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_PISTOL', 12, item)
+    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_PISTOL', 36, item)
 end)
 
 QBCore.Functions.CreateUseableItem('rifle_ammo', function(source, item)
-    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_RIFLE', 30, item)
+    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_RIFLE', 90, item)
 end)
 
 QBCore.Functions.CreateUseableItem('smg_ammo', function(source, item)
-    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_SMG', 20, item)
+    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_SMG', 40, item)
 end)
 
 QBCore.Functions.CreateUseableItem('shotgun_ammo', function(source, item)
@@ -329,7 +329,7 @@ QBCore.Functions.CreateUseableItem('shotgun_ammo', function(source, item)
 end)
 
 QBCore.Functions.CreateUseableItem('mg_ammo', function(source, item)
-    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_MG', 30, item)
+    TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_MG', 55, item)
 end)
 
 QBCore.Functions.CreateUseableItem('snp_ammo', function(source, item)
