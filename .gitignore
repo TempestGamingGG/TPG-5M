@@ -1,3 +1,4 @@
 citizen/system_resources/
+crashes/*
 QBCoreFramework/cache/*
-QBCoreFramework/server.cfg
+server-monitor-token.key
