@@ -821,6 +821,9 @@ CreateThread(function()
                     seatbeltOn = false
                     cruiseOn = false
                     harness = false
+					if not IsPedInAnyVehicle(PlayerPedId()) then
+						SendNUIMessage({ action = 'car', show = false })
+					end
                 end
                 DisplayRadar(Menu.isOutMapChecked)
             end

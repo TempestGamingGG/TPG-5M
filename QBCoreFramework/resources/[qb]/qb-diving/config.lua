@@ -1,7 +1,7 @@
 Config = Config or {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 Config.CopsChance = 0.5 -- The chance of the cops getting called when a coral gets picked up, this ranges from 0.0 to 1.0
-Config.oxygenlevel = 200 -- this is oxygen level you can change this numper as you like 
+Config.oxygenlevel = 1000 -- this is oxygen level you can change this numper as you like
 Config.CoralLocations = {
     [1] = {
         label = "This is Location 1",
@@ -38,8 +38,8 @@ Config.CoralLocations = {
                 },
             }
         },
-        DefaultCoral = 4,
-        TotalCoral = 4,
+        DefaultCoral = 7,
+        TotalCoral = 7,
     },
     [2] = {
         label = "Location 2",
@@ -69,8 +69,8 @@ Config.CoralLocations = {
                 },
             }
         },
-        DefaultCoral = 3,
-        TotalCoral = 3,
+        DefaultCoral = 6,
+        TotalCoral = 6,
     },
     [3] = {
         label = "Location 3",
@@ -100,8 +100,8 @@ Config.CoralLocations = {
                 },
             }
         },
-        DefaultCoral = 3,
-        TotalCoral = 3,
+        DefaultCoral = 4,
+        TotalCoral = 4,
     },
     [4] = {
         label = "Location 4",

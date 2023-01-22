@@ -235,8 +235,8 @@ RegisterNetEvent('qb-lapraces:server:JoinRace', function(RaceData)
         end
         TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
     end
-    Races[RaceId].Waiting = true
-    Races[RaceId].Racers[Player.PlayerData.citizenid] = {
+    Races[RaceData.RaceId].Waiting = true
+    Races[RaceData.RaceId].Racers[Player.PlayerData.citizenid] = {
         Checkpoint = 0,
         Lap = 1,
         Finished = false
