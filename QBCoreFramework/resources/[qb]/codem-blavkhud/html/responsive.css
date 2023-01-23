@@ -1,0 +1,2253 @@
+@media (width: 2560px) and (height: 1440px) {
+
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 0.8vh;
+    height: 1.5vh;
+    bottom: 2.9vh;
+    left: 28vh;
+    z-index: 100;
+    display: none;
+
+  }
+
+  .allhudmicontext {
+    position: absolute;
+    width: 0.9vh;
+    height: 1.5vh;
+    bottom: 2.1vh;
+    left: 15.57vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-map-walk {
+    position: absolute;
+    width: 29rem !important;
+    height: 7rem !important;
+    bottom: 0rem;
+    left: 0.35vh;
+  }
+
+
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 2.1vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 24.2vh;
+    bottom: 0.7vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 5.7vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 13vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 1.5vh;
+    bottom: 0.2vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 9.4vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 19.8vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: -0.9vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-health2 {
+    position: absolute;
+    flex: 1;
+    bottom: 2.1vh;
+    left: 0.1vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-armor {
+    position: absolute;
+    flex: 1;
+    bottom: 2.1vh;
+    left: 4.7vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-water {
+    position: absolute;
+    flex: 1;
+    bottom: 2.1vh;
+    left: 13.8vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-hunger {
+    position: absolute;
+    flex: 1;
+    bottom: 2.1vh;
+    left: 18.4vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  #text-hud-map {
+    position: absolute;
+    width: 29.9vh !important;
+    height: 25.9vh !important;
+    bottom: -0.6vh;
+    left: 0.6vh;
+  }
+
+  .text-hud-icons-vehicle .micbar-text {
+    position: absolute;
+    left: 10.19vh;
+    bottom: 2.3vh;
+
+  }
+
+  .streetnametext {
+    position: absolute;
+    bottom: 22.7vh;
+    left: 5.9vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .saattext {
+    position: absolute;
+    bottom: 22.7vh;
+    left: 21vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  /*--------------- Venice ---------------*/
+
+  .health-bar-walk {
+    position: absolute;
+    bottom: 1.4vh;
+    width: 11.5vh;
+    left: 2.1vh;
+    height: 18.51vh;
+    transform: rotate(180deg);
+  }
+
+  .armor-bar-walk {
+    position: absolute;
+    bottom: 1.4vh;
+    width: 11.5vh;
+    left: 16.4vh;
+    height: 18.51vh;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+  .thirsty-bar-walk {
+    position: absolute;
+    bottom: -9.1vh;
+    width: 11.5vh;
+    left: 2.1vh;
+    height: 18.51vh;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    transition: all 0.25s linear;
+  }
+
+  .hunger-bar-walk {
+    position: absolute;
+    bottom: -9.1vh;
+    width: 11.5vh;
+    left: 16.4vh;
+    height: 18.51vh;
+    transition: all 0.25s linear;
+  }
+
+  .venicemaphud {
+    position: absolute;
+    width: 29.7vh !important;
+    height: 25.6vh !important;
+    left: 1.26vh !important;
+  }
+
+  .health-bar {
+    position: absolute;
+    bottom: 2.8vh;
+    width: 12.5vh;
+    left: 3.2vh;
+    height: 18.51vh;
+    transform: rotate(180deg);
+  }
+
+  .armor-bar {
+    position: absolute;
+    bottom: 2.8vh;
+
+    width: 12.5vh;
+    left: 16.6vh;
+    height: 18.51vh;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+  .thirsty-bar {
+    position: absolute;
+    bottom: 1.75vh;
+    width: 12.5vh;
+    left: 3.4vh;
+    height: 18.51vh;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    transition: all 0.25s linear;
+  }
+
+  .hunger-bar {
+    position: absolute;
+    bottom: 1.75vh;
+    width: 12.5vh;
+    left: 16.5vh;
+    height: 18.51vh;
+    transition: all 0.25s linear;
+  }
+
+  .allhudmiconvenice {
+    position: absolute;
+    width: 1.1vh;
+    height: 1.6vh;
+    bottom: 2.7vh;
+    left: 15.57vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .micbar-venice {
+    position: absolute;
+    left: 53.01% !important;
+    top: 24.35vh;
+    transform: translateX(-50%);
+    scale: 1.3
+  }
+
+  .streetnamevenice {
+    position: absolute;
+    bottom: 23.4vh;
+    left: 6.7vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .saatvenice {
+    position: absolute;
+    bottom: 23.3vh;
+    left: 22.vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* -----------------RADIAL ------------------------*/
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: -1rem;
+    left: 0.35vh;
+    width: 29rem;
+    height: 7rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 28.2vh;
+    bottom: 2.48vh;
+    z-index: 100;
+    display: none;
+    scale: 1.3
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 5.24rem;
+    bottom: 1.9vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 8.5rem;
+    bottom: 1.6vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 24.3rem;
+    bottom: 1.6vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 15.1rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 11.78rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 18.3rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 21.3rem;
+    bottom: 1.5vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  #radial-hud-map {
+    position: absolute;
+    width: 27rem;
+    height: 23.7rem;
+    bottom: -1.6rem;
+    left: 1.1vh;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 4.78rem;
+    bottom: 0.75rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 8.9rem;
+    bottom: 0.75rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 13rem;
+    bottom: 0.78rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .radial-id {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 3.7vh;
+    bottom: 0.8vh;
+    height: 1.35vh;
+    justify-content: center;
+    align-items: center;
+    width: 1.35vh;
+    z-index: 59999;
+    text-align: center;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 17.2rem;
+    bottom: 0.75rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 21.3rem;
+    bottom: 0.75rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .saat {
+    position: absolute;
+    bottom: 19.9vh;
+    left: 21.4vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  .streetname {
+    position: absolute;
+    bottom: 19.9vh;
+    left: 6.5vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .allhudmiconradial {
+    position: absolute;
+    left: 15.7vh;
+    bottom: 1.8vh;
+    z-index: 100;
+    display: block;
+    width: 0.80vh;
+    height: 1.4vh;
+    scale: 1.1;
+  }
+}
+
+@media (width: 1768px) and (height: 992px) {
+
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 0.8vh;
+    height: 1.5vh;
+    bottom: 2.9vh;
+    left: 27.99vh;
+    z-index: 100;
+    display: none;
+  }
+
+
+
+
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 2.1vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 24vh;
+    bottom: 0.7vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 5.9vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 13.1vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 9.4vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 1.7vh;
+    bottom: 0.2vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 20vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: -1.2vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: rem;
+    left: 0.35vh;
+    width: 23rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 32.5vh;
+    bottom: 1.5vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 4.22rem;
+    bottom: 1.5vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+  .radial-id-text {
+    position: relative;
+    bottom: 0.3vh;
+    left: -0.6vh;
+    color: white;
+    font-size: 0.83vh;
+  }
+
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 9.45rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 6.9rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 19.43rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 11.9rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 14.6rem;
+    bottom: 1.0vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 16.99rem;
+    bottom: 1.2vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  #radial-hud-map {
+    position: absolute;
+    width: 18.8rem;
+    height: 17.5rem;
+    bottom: -2rem;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 2.65rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 5.6rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 8.38rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 11.35rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 14.15rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+}
+
+
+@media (width: 1600px) and (height: 1024px) {
+
+
+  .venicemaphud {
+    position: absolute;
+    width: 26.2vh !important;
+    height: 27vh !important;
+  }
+
+  .allhudmiconvenice {
+    position: absolute;
+    width: 1.1vh;
+    height: 1.6vh;
+    bottom: 1.45vh;
+    left: 12.5vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .health-bar {
+    position: absolute;
+    bottom: 1.8vh;
+    width: 10.5vh;
+    left: 1.8vh;
+    height: 18.51vh;
+    transform: rotate(180deg);
+  }
+
+
+
+  .hunger-bar {
+    position: absolute;
+    bottom: 1.5vh;
+    width: 10.5vh;
+    left: 14vh;
+    height: 18.51vh;
+    transition: all 0.25s linear;
+  }
+
+
+  .armor-bar {
+    position: absolute;
+    bottom: 1.8vh;
+
+    width: 10.5vh;
+    left: 14vh;
+    height: 18.51vh;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+  .thirsty-bar {
+    position: absolute;
+    bottom: 1.5vh;
+    width: 10.5vh;
+    left: 2vh;
+    height: 18.51vh;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    transition: all 0.25s linear;
+  }
+
+  .micbar-venice {
+    position: absolute;
+    left: 42f.6% !important;
+    top: 24.9vh;
+    transform: translateX(-50%);
+  }
+
+  .saatvenice {
+    position: absolute;
+    bottom: 23.3vh;
+    left: 17.99vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .streetnamevenice {
+    position: absolute;
+    bottom: 23.4vh;
+    left: 4.6vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+
+  #text-hud-map {
+    position: absolute;
+    width: 25.9vh !important;
+    height: 25.9vh !important;
+    bottom: -1vh;
+  }
+
+  .saattext {
+    position: absolute;
+    bottom: 22.3vh;
+    left: 16.99vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .allhudmicontext {
+    position: absolute;
+    width: 0.9vh;
+    height: 1.5vh;
+    bottom: 1.7vh;
+    left: 13vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-icons-vehicle .micbar-text {
+    position: absolute;
+    left: 7.5vh;
+    bottom: 1.8vh;
+
+  }
+
+  .text-hud-icons-vehicle .text-hud-health2 {
+    position: absolute;
+    flex: 1;
+    bottom: 1.6vh;
+    left: -1.4vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-armor2 {
+    position: absolute;
+    flex: 1;
+    bottom: -0vh;
+    left: -1.4vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-water2 {
+    position: absolute;
+    flex: 1;
+    bottom: -0vh;
+    left: -2.6vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+
+  }
+
+  .text-hud-icons-vehicle .text-hud-hunger {
+    position: absolute;
+    flex: 1;
+    bottom: 1.6vh;
+    left: 14.5vh;
+    font-size: 0.8vh;
+
+    width: 3vh;
+    text-align: center;
+  }
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 0.8vh;
+    height: 1.5vh;
+    bottom: 2.8vh;
+    left: 27.3vh;
+    z-index: 100;
+    display: none;
+  }
+
+
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 1.9vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 9vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 23.3vh;
+    bottom: 0.7vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 5.5vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 12.5vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 16.1vh;
+    bottom: 0.7vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 1.1vh;
+    bottom: 0.2vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: -1.3vh;
+    bottom: 0.5vh;
+
+    width: 3vh;
+    text-align: center;
+  }
+
+
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: -1rem;
+    left: 0.35vh;
+    width: 23rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 31.4vh;
+    bottom: 1.6vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .allhudmiconradial {
+    position: absolute;
+    left: 12.9vh;
+    bottom: 0.5vh;
+    z-index: 100;
+    display: block;
+  }
+
+  .saat {
+    position: absolute;
+    bottom: 19.5vh;
+    left: 18vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  .streetname {
+    position: absolute;
+    bottom: 19.5vh;
+    left: 5vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 4.25rem;
+    bottom: 1.4vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 9.45rem;
+    bottom: 1.0vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 6.95rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 19.4rem;
+    bottom: 1.0vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 12rem;
+    bottom: 1.1vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 14.65rem;
+    bottom: 1.0vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 17rem;
+    bottom: 1.0vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  #radial-hud-map {
+    position: absolute;
+    width: 17rem;
+    height: 17.5rem;
+    bottom: -2rem;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 2.3rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 4.9rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 7.45rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 10.1rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 12.65rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .radial-id-text {
+    position: absolute;
+    bottom: 0.5vh;
+    left: -.0vh;
+    color: white;
+    font-size: 0.83vh;
+  }
+
+}
+
+@media (width: 1680px) and (height: 1050px) {
+
+  .venicemaphud {
+    position: absolute;
+    width: 27.2vh !important;
+    height: 27vh !important;
+  }
+
+  .allhudmiconvenice {
+    position: absolute;
+    width: 1.1vh;
+    height: 1.6vh;
+    bottom: 1.45vh;
+    left: 13vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .health-bar {
+    position: absolute;
+    bottom: 1.8vh;
+    width: 10.5vh;
+    left: 1.8vh;
+    height: 18.51vh;
+    transform: rotate(180deg);
+  }
+
+
+
+  .hunger-bar {
+    position: absolute;
+    bottom: 1.5vh;
+    width: 10.5vh;
+    left: 15vh;
+    height: 18.51vh;
+    transition: all 0.25s linear;
+  }
+
+
+  .armor-bar {
+    position: absolute;
+    bottom: 1.8vh;
+
+    width: 10.5vh;
+    left: 15vh;
+    height: 18.51vh;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+  .thirsty-bar {
+    position: absolute;
+    bottom: 1.5vh;
+    width: 10.5vh;
+    left: 2vh;
+    height: 18.51vh;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    transition: all 0.25s linear;
+  }
+
+  .micbar-venice {
+    position: absolute;
+    left: 44.6% !important;
+    top: 24.9vh;
+    transform: translateX(-50%);
+  }
+
+  .saatvenice {
+    position: absolute;
+    bottom: 23.3vh;
+    left: 18.99vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .streetnamevenice {
+    position: absolute;
+    bottom: 23.4vh;
+    left: 4.6vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+
+
+
+
+  #text-hud-map {
+    position: absolute;
+    width: 26.9vh !important;
+    height: 25.9vh !important;
+    bottom: -1vh;
+  }
+
+  .saattext {
+    position: absolute;
+    bottom: 22.3vh;
+    left: 17.99vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .allhudmicontext {
+    position: absolute;
+    width: 0.9vh;
+    height: 1.5vh;
+    bottom: 1.7vh;
+    left: 13.5vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-icons-vehicle .micbar-text {
+    position: absolute;
+    left: 8.0vh;
+    bottom: 1.8vh;
+
+  }
+
+  .text-hud-icons-vehicle .text-hud-health2 {
+    position: absolute;
+    flex: 1;
+    bottom: 1.6vh;
+    left: -1.2vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-armor2 {
+    position: absolute;
+    flex: 1;
+    bottom: -0.0vh;
+    left: -1vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-water2 {
+    position: absolute;
+    flex: 1;
+    bottom: 0.1vh;
+    left: -1.7vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-hunger2 {
+    position: absolute;
+    flex: 1;
+    bottom: -0vh;
+    left: -2.4vh;
+    font-size: 0.8vh;
+  }
+
+
+
+
+
+
+
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 0.8vh;
+    height: 1.5vh;
+    bottom: 2.8vh;
+    left: 26.5vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 1.8vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 8.6vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 22.6vh;
+    bottom: 0.7vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 5.3vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 12.2vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 15.6vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: 0.5vh;
+    bottom: 0vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 0.8vh;
+    flex: 1;
+    left: -1.4vh;
+    bottom: 0.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: -1rem;
+    left: 0.35vh;
+    width: 23rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 30.8vh;
+    bottom: 1.3vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .allhudmiconradial {
+    position: absolute;
+    left: 13.2vh;
+    bottom: 0.5vh;
+    z-index: 100;
+    display: block;
+  }
+
+  .saat {
+    position: absolute;
+    bottom: 19.5vh;
+    left: 18vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  .streetname {
+    position: absolute;
+    bottom: 19.5vh;
+    left: 5vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 4.24rem;
+    bottom: 1.3vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 6.9rem;
+    bottom: 0.9vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 19.4rem;
+    bottom: 0.9vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 12rem;
+    bottom: 0.9vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 14.40vh;
+    bottom: 0.9vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 14.6rem;
+    bottom: 0.9vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 16.99rem;
+    bottom: 0.9vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  #radial-hud-map {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    bottom: -2rem;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 2.42rem;
+    bottom: 0.05rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 5.2rem;
+    bottom: 0.05rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 7.9rem;
+    bottom: 0.05rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 10.7rem;
+    bottom: 0.05rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 13.4rem;
+    bottom: 0.05rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .radial-id-text {
+    position: absolute;
+    bottom: 0.5vh;
+    left: -0.1vh;
+
+    color: white;
+    font-size: 0.83vh;
+  }
+}
+
+
+
+
+@media (width: 1600px) and (height: 900px) {
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 0.8vh;
+    height: 1.5vh;
+    bottom: 3.5vh;
+    left: 31vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 2.8vh;
+    bottom: 0.9vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 10.9vh;
+    bottom: 0.9vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 27vh;
+    bottom: 1vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 7.0vh;
+    bottom: 0.9vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 15.0vh;
+    bottom: 0.9vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 19vh;
+    bottom: 0.9vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+
+    left: 22.6vh;
+    bottom: 0.9vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: -0.8vh;
+    bottom: 1vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: -1rem;
+    left: 0.35vh;
+    width: 23rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 35.8vh;
+    bottom: 1.7vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .allhudmiconradial {
+    position: absolute;
+    left: 14.5vh;
+    bottom: 0.5vh;
+    z-index: 100;
+    display: block;
+  }
+
+  .saat {
+    position: absolute;
+    bottom: 19.8vh;
+    left: 20.5vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  .streetname {
+    position: absolute;
+    bottom: 19.9vh;
+    left: 6vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 4.3rem;
+    bottom: 1.9vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 9.5rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 7rem;
+    bottom: 1.7vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 19.5rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 12.1rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 14.7rem;
+    bottom: 1.5vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 17.08rem;
+    bottom: 1.5vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  #radial-hud-map {
+    position: absolute;
+    width: 17rem;
+    height: 16rem;
+    bottom: -2rem;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 2.38rem;
+    bottom: 0.02rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 5rem;
+    bottom: 0.02rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 7.6rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 10.2rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 12.8rem;
+    bottom: -0.01rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .radial-id-text {
+    position: relative;
+    bottom: -2.8vh;
+    left: -.0vh;
+    color: white;
+    font-size: 0.83vh;
+  }
+
+
+  .radial-id {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 4.35vh;
+    bottom: 3.8vh;
+    height: 1.35vh;
+    justify-content: center;
+    align-items: center;
+    width: 1.35vh;
+    z-index: 59999;
+  }
+
+}
+
+
+
+
+
+
+@media (width: 1366px) and (height: 768px) {
+
+
+
+
+
+  .allhudmicontextwalk {
+    position: absolute;
+    width: 1vh;
+    height: 2vh;
+    bottom: 4.3vh;
+    left: 36.1vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .allhudmicontext {
+    position: absolute;
+    width: 0.9vh;
+    height: 1.5vh;
+    bottom: 1.8vh;
+    left: 15vh;
+
+    z-index: 100;
+    display: none;
+  }
+
+  .text-hud-icons-onfoot .text-hud-health2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 4vh;
+    bottom: 1.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .micbar-text {
+    position: absolute;
+    left: 9.35vh;
+    bottom: 1.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-health2 {
+    position: absolute;
+    flex: 1;
+    bottom: 1.6vh;
+    left: 0h;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stress2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 13.5vh;
+    bottom: 1.3vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-armor2 {
+    position: absolute;
+    flex: 1;
+    bottom: .2vh;
+    left: 0vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-water2 {
+    position: absolute;
+    flex: 1;
+    bottom: .2vh;
+    left: 0vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-vehicle .text-hud-hunger2 {
+    position: absolute;
+    flex: 1;
+    bottom: .2vh;
+    left: 0vh;
+    font-size: 0.8vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .micbar-text {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 32.2vh;
+    bottom: 1.5vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-hud-armor2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 8.9vh;
+    bottom: 1.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-water2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 18.3vh;
+    bottom: 1.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-hunger2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 23vh;
+    bottom: 1.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+  .text-hud-icons-onfoot .text-hud-stamina {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: 27.2vh;
+    bottom: 1.5vh;
+
+  }
+
+  .text-hud-icons-onfoot .text-server-id2 {
+    position: absolute;
+    font-size: 1vh;
+    flex: 1;
+    left: -.2vh;
+    bottom: 1.5vh;
+    width: 3vh;
+    text-align: center;
+  }
+
+
+
+
+
+
+
+
+
+
+  .radial-hud-map-walk {
+    position: absolute;
+    bottom: -1rem;
+    left: 0.35vh;
+    width: 19.5rem;
+  }
+
+  .allhudmiconradialwalk {
+    position: absolute;
+    left: 35.4vh;
+    bottom: 1.3vh;
+    z-index: 100;
+    display: none;
+  }
+
+  .allhudmiconradial {
+    position: absolute;
+    left: 14.5vh;
+    bottom: 0.5vh;
+    z-index: 100;
+    display: block;
+  }
+
+  .saat {
+    position: absolute;
+    bottom: 19.9vh;
+    left: 20.5vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+
+  }
+
+  .streetname {
+    position: absolute;
+    bottom: 19.9vh;
+    left: 6vh;
+    z-index: 5000;
+    color: white;
+    font-size: 1.5vh;
+  }
+
+  .health-progress-bar-walk {
+    position: absolute;
+    left: 3.65rem;
+    bottom: 1.7vh;
+    height: 3.2vh;
+    width: 3.55vh;
+  }
+
+
+  .armor-progress-bar-walk {
+    position: absolute;
+    left: 5.9rem;
+    bottom: 1.4vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .mic-progress-bar-walk {
+    position: absolute;
+    left: 16.5rem;
+    bottom: 1.3vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+  .thirsty-progress-bar-walk {
+    position: absolute;
+    left: 10.3rem;
+    bottom: 1.4vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+
+
+  .hunger-progress-bar-walk {
+    position: absolute;
+    left: 12.5rem;
+    bottom: 1.3vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stamina-progress-bar {
+    position: absolute;
+    left: 14.5rem;
+    bottom: 1.4vh;
+    display: none;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .stress-progress-bar-walk {
+    position: absolute;
+    left: 8.1rem;
+    bottom: 1.3vh;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  #radial-hud-map {
+    position: absolute;
+    width: 14.5rem;
+    height: 13.5rem;
+    bottom: -1.5rem;
+  }
+
+  .health-progress-bar {
+    position: absolute;
+    left: 1.99rem;
+    bottom: .15rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .armor-progress-bar {
+    position: absolute;
+    left: 4.3rem;
+    bottom: .15rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .mic-progress-bar {
+    position: absolute;
+    left: 6.45rem;
+    bottom: .15rem;
+    height: 3.55vh;
+    width: 3.55vh;
+  }
+
+  .thirsty-progress-bar {
+    position: absolute;
+    left: 8.689rem;
+    bottom: .15rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+
+  .hunger-progress-bar {
+    position: absolute;
+    left: 10.98rem;
+    bottom: .15rem;
+    height: 3.55vh;
+    width: 3.55vh;
+    display: none;
+  }
+
+  .radial-id-text {
+    position: relative;
+    bottom: -3.2vh;
+    left: 0.3vh;
+    color: white;
+    font-size: 0.83vh;
+  }
+
+
+  .radial-id {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 4.35vh;
+    bottom: 3.8vh;
+    height: 1.35vh;
+    justify-content: center;
+    align-items: center;
+    width: 1.35vh;
+    z-index: 59999;
+  }
+
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeM Elegant HUD</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <div class="all">
+      <div class="playerhud">
+        <h2 class="playerhudjob">UNEMPLOYED</h2>
+        <h2 class="playerhudcash">$ 4000</h2>
+        <h2 class="playerhudbank">$ 80000</h2>
+      <div class="playercashimg">
+        <img  src="./img/moneycash.png" alt="">
+      </div>
+      <div class="playerbankimg">
+        <img  src="./img/playerbank.png" alt="">
+      </div>
+        <div class="jobhud">
+          <img  src="./img/moneyandjob.png" alt="">
+        </div>
+
+      </div>
+
+
+      <img id="micons" class="allhudmicon" src="../html/Radial-Mode/mic-on.png" alt="" >
+      <img id="miconstext" class="allhudmicontext" src="../html/Radial-Mode/mic-on.png" alt="" >
+      <img id="miconstext" class="allhudmicontextwalk" src="../html/Radial-Mode/mic-on.png" alt="" >
+       <img id="miconstext" class="allhudmiconvenicewalk" src="../html/Radial-Mode/mic-on.png" alt="" > 
+      <img id="miconsradial" class="allhudmiconradial" src="../html/Radial-Mode/mic-on.png" alt="" >
+      <img id="miconsradial" class="allhudmiconvenice" src="../html/Radial-Mode/mic-on.png" alt="" >
+      <img id="miconsradialwalk" class="allhudmiconradialwalk" src="../html/Radial-Mode/mic-on.png" alt="" >
+      <div class="compassgenel">
+        <svg class="svg">
+          <text x="0" y="-2" stroke="black" fill="white" stroke-width="1" stroke-opacity="0.8" style="font-family: 'Poppins',  sans-serif; font-weight: 800!important;" text-anchor="middle">N</text>
+          <text x="360" y="-2" stroke="black" fill="white" stroke-width="1" stroke-opacity="0.8" style="font-family:'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">N</text>
+          <text x="315" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">NW</text>
+          <text x="-45" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">NW</text>
+          <text x="45" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">NE</text>
+          <text x="405" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">NE</text>
+          <text x="90" y="-2" stroke="black" fill="white" stroke-width="1" stroke-opacity="0.8" style="font-family:'Poppins',   sans-serif; font-weight: 800!important;" text-anchor="middle">E</text>
+          <text x="135" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">SE</text>
+          <text x="180" y="-2" stroke="black" fill="white" stroke-width="1" stroke-opacity="0.8" style="font-family:  'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">S</text>
+          <text x="225" y="-20" stroke="black" fill="white" stroke-width="0.7" stroke-opacity="0.8" style="font-size:14px; font-family: 'Poppins', sans-serif; font-weight: 800!important;" text-anchor="middle">SW</text>
+          <text x="270" y="-2" stroke="black" fill="white" stroke-width="1" stroke-opacity="0.8" style="font-family: 'Poppins',  sans-serif; font-weight: 800!important;" text-anchor="middle">W</text>
+        </svg>
+        <!-- compass lines -->
+        <div class="bar">
+          <svg class="svg">
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="-90" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="-45" />
+            <rect width="4.5" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="0" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="45" />
+            <rect width="4.5" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="90" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="135" />
+            <rect width="4.5" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="180" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="225" />
+            <rect width="4.5" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="270" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="315" />
+            <rect width="4.5" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="360" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="5" x="405" />
+            <rect width="3" stroke="black" fill="white" stroke-width="0.6" stroke-opacity="0.8" height="14" x="450" />
+          </svg>
+        </div>
+      </div>
+      <div class="bg">
+        <img src="./img/Overall-Export.png" alt="" />
+      </div>
+      <div class="venice-hud">
+        <div class="maphud">
+          <div class="maphud-wrapper">
+            <div class="saatvenice"></div>
+            <div class="streetnamevenice"></div>
+         
+           
+           
+            <img class="venicemaphud" src="./img/Map-HUD.png" alt="" />
+            <div class="micbar-venice">
+              <div class="micbar-1-text mic-text"></div>
+              <div class="micbar-2-text mic-text"></div>
+              <div class="micbar-3-text mic-text"></div>
+            </div>
+          </div>
+        </div>
+      
+          <div class="health-bar">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="health-bar" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="health-bar2" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="hunger-bar">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="hunger-bar" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="hunger-bar2" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="armor-bar">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="armor-bar" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="armor-bar2" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="thirsty-bar">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="thirsty-bar" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="thirsty-bar2" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+       
+     
+      </div>
+      <div class="venice-hud-walk">
+        <div class="maphud">
+          <div class="maphud-wrapper">
+          
+           
+            
+            <div class="playerId2">
+              <p class="playerId"></p>
+            </div>
+            <div class="venicestamina2">
+              <p class="venicestamina"></p>
+            </div>
+            <img class="venicehudmapwalk" src="./Venice-Mode/on-walk-hud.png" alt="" />
+            <div class="venicemodeall">
+              <img class="venicemodemiclow" src="./Venice-Mode/mic-low-onwalk.png" alt="" />
+              <img class="venicemodemicmid" src="./Venice-Mode/mic-mid-onwalk.png" alt="" />
+              <img class="venicemodemichig" src="./Venice-Mode/mic-long-onwalk.png" alt="" />
+            </div>
+          </div>
+        </div>
+      
+          <div class="health-bar-walk">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="health-bar33" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="health-bar44" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="hunger-bar-walk">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="hunger-bar55" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="hunger-bar66" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="armor-bar-walk">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="armor-bar77" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="armor-bar88" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+          <div class="thirsty-bar-walk">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="3 0 134 34">
+              <path fill-opacity="0" stroke-width="4" stroke-linecap="round" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="thirsty-bar98" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#000000" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+              <path id="thirsty-bar99" fill-opacity="0" stroke-linecap="round" stroke-width="5" stroke="#fff" d="M133.989,34.4 L133.989,4.675 L4.690,4.675" />
+            </svg>
+          </div>
+       
+     
+      </div>
+      <div class="text-hud">
+
+        <div class="text-hud-map">
+            <div class="text-hud-map-wrapper">
+              <div class="saattext"></div>
+              <div class="streetnametext"></div>
+              <img id="text-hud-map" src="./Text-Mode/Map-HUD.png" alt="" />
+              <img class="text-hud-map-walk" src="./Text-Mode/onwalk-hud.png" alt="">
+              <div class="text-hud-icons-vehicle">
+                  <div class="text-hud-health2">
+                    <p class="text-hud-health"></p>
+                  </div>
+                  <div class="text-hud-armor2">
+                    <p class="text-hud-armor"></p>
+                  </div>
+               
+                <div class="micbar-text">
+                  <div class="micbar-1-text mic-text"></div>
+                  <div class="micbar-2-text mic-text"></div>
+                  <div class="micbar-3-text mic-text"></div>
+                </div>
+                <div class="text-hud-water2">
+                  <p class="text-hud-water"></p>
+                </div>
+                
+                <div class="text-hud-hunger2">
+                  <p class="text-hud-hunger"></p>
+                </div>
+              
+              </div>
+              <div class="text-hud-icons-onfoot">
+                <div class="text-server-id2">
+                    <p class="text-server-id"></p>
+                </div>
+               <div class="text-hud-health2">
+                 <p class="text-hud-health"></p>
+               </div>
+                <div class="text-hud-armor2">
+                  <p class="text-hud-armor"></p>
+                </div>
+                <div class="text-hud-stress2">
+                  <p class="text-hud-stress"></p>
+                </div>
+               
+                <div class="micbar-text">
+                  <div class="micbar-1-text mic-text"></div>
+                  <div class="micbar-2-text mic-text"></div>
+                  <div class="micbar-3-text mic-text"></div>
+                </div>
+                <div class="text-hud-water2">
+                    <p class="text-hud-water"></p>
+                </div>
+                <div class="text-hud-hunger2">
+                  <p class="text-hud-hunger"></p>
+                </div>
+
+                <div class="text-hud-stamina2">
+                  <p class="text-hud-stamina"></p>
+                </div>
+
+               
+              </div>
+
+            </div>
+          </div>  
+      </div>
+      <div class="radial-hud">
+        <div class="radial-hud-map">
+          <div class="radial-hud-map-wrapper">
+            <div class="saat"></div>
+            <div class="streetname"></div>
+
+            <div class="radial-id">
+              <!-- <img style="width: 100%; height: auto;" src="./Radial-Mode/id.png"> -->
+              <div class="radial-id-text">2</div>
+            </div>
+            <img class="radial-hud-map-walk" src="./Radial-Mode/onwalk-hud.png" alt="">
+            <img id="radial-hud-map" src="./Radial-Mode/MapHUD.png" alt="" />
+            <div class="health-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+              
+                <path class="radialhealth circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="health-progress-bar-walk">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+
+                <path class="radialhealthwalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="armor-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+              
+                <path class="radialarmor circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="armor-progress-bar-walk">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                
+                <path class="radialarmorwalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="stress-progress-bar-walk" >
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                
+                <path class="radialstresswalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="mic-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+               
+                <path class="radialmic circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="mic-progress-bar-walk">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+               
+                <path class="radialmicwalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+
+            <div class="thirsty-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+               
+                <path class="radialthirsty circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="thirsty-progress-bar-walk">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+               
+                <path class="radialthirstywalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+
+            <div class="hunger-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+              
+                <path class="radialhunger circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="hunger-progress-bar-walk">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+              
+                <path class="radialhungerwalk circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+            <div class="stamina-progress-bar">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+             
+                <path class="radialstamina circle" stroke-dasharray="0, 100" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <path class="circlebg" d="M16.493,1.501 C24.782,1.501 31.502,8.214 31.502,16.494 C31.502,24.775 24.782,31.487 16.493,31.487 C8.204,31.487 1.484,24.775 1.484,16.494 C1.484,8.214 8.204,1.501 16.493,1.501 Z" marker-end="url(#dot)" />
+                <text x="18" y="20.35" class="percentage"></text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carhud" >
+        <img src="./img/Car-Speedometer.png" alt="" />
+      </div>
+      <div id="text">
+        <h1>59</h1>
+        <h2 id="speed-unit-text">km/h</h2>
+      </div>
+      <!-- <div class="compass">
+        <img src="./img/Compass-Top.png" alt="" />
+      </div> -->
+      <div class="speedsvg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224.21px" height="222.21px">
+          <path class="hizsvg" fill-rule="evenodd" stroke="white" stroke-width="10.14px" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="0, 400" d="M57.625,206.164 C57.625,206.164 10.704,175.358 10.704,115.531 C10.704,55.703 56.837,10.312 120.187,10.312 C183.538,10.312 208.817,58.233 208.817,58.233 " />
+        </svg>
+      </div>
+      <div class="fuelsvg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.21px" height="164.21px">
+          <path class="fuelani" fill-rule="evenodd" stroke="white" stroke-width="10.14px" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="50, 400" d="M10.546,148.71 C10.546,148.71 57.439,117.288 57.439,57.509 C57.439,31.998 47.69,11.70 47.69,11.70 " />
+        </svg>
+      </div>
+      <!-- <div id="progressbar">
+        <div></div>
+      </div> -->
+      <div class="icons">
+        <img id="seatbelt-on" src="./img/seatbelt.png" alt="" />
+        <img id="cruise-on" src="./img/speedometer.png" alt="" />
+        <img id="longlights-on" src="./img/car-light.png" alt="" />
+        <img id="lights-on" src="./img/car-lights.png" alt="" />
+        <img id="brakes-on" src="./img/brake-system-warning.png" alt="" />
+        <img id="left-on" src="./img/left-arrow.png" alt="" />
+        <img id="right-on" src="./img/right-arrow.png" alt="" />
+      </div>
+    </div>
+    <div class="settings">
+      <div class="map-tab">
+        <img class="compass-onmap-img placeholder-hover" src="./settings-img/Compass-onmap.png" />
+        <img class="map-tab-img" src="./settings-img/Map-Tab.png" />
+      </div>
+      <div class="compass-top">
+        <img class="compass-top-img placeholder-hover" src="./settings-img/Compass-Top.png" />
+      </div>
+      <img class="compass-bottom placeholder-translate-hover" src="./settings-img/Compass-bottom.png" />
+      <div class="middle-tab">
+        <img class="select-hud-text placeholder-hover" src="./settings-img/Select-HUD-Type.png" />
+        <div class="hud-options">
+          <img id="texthud" class="map-hud-text placeholder-hover" src="./settings-img/Map-HUD-text.png" />
+          <img id="venicehud" class="map-hud-venice placeholder-hover" src="./settings-img/Map-HUD-Venice.png" />
+          <img id="radialhud" class="map-hud-radial placeholder-hover" src="./settings-img/Map-HUD-Radial.png" />
+        </div>
+        <div class="hud-2-options">
+          <img id="hidehud" class="placeholder-hover" src="./settings-img/Hide-Hud.png" />
+          <img id="showhud" class="placeholder-hover" src="./settings-img/Show-Hud.png" />
+          <img id="exit" class="placeholder-hover" src="./settings-img/Exit-Button.png" />
+          <img id="enable-cinematic" class="placeholder-hover" src="./settings-img/enable-cinematic-mode.png" />
+          <img id="disable-cinematic" class="placeholder-hover" src="./settings-img/disable-cinematic-mode.png" />
+        
+        </div>
+        <div class="hud-3-options">
+          <img id="showcompass" class="placeholder-hover" src="./settings-img/Show-Compass.png" />
+          <img id="hidecompass" class="placeholder-hover" src="./settings-img/Hide-Compass.png" />
+        </div>
+      </div>
+      <div class="speedometer-tab">
+        <div class="speedometer-tab-wrapper">
+          <img class="speedometer-img" src="./settings-img/Car-Speedometer.png" />
+          <div class="options-meter">
+            <img class="options-mph placeholder-hover" src="./settings-img/mph.png" />
+            <img class="options-kmh placeholder-hover" src="./settings-img/kmh.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="./progressbar.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

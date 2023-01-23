@@ -1,0 +1,50 @@
+.progress-bar {
+  position: absolute;
+  left: 0;
+  bottom:0; 
+  height: 250px;
+  width: 250px
+}
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+.circlebg {
+  position: relative;
+  z-index: -100;
+  stroke: #595959;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.1;
+ 
+}
+
+.circle {
+  position: relative;
+  z-index: 1;
+  stroke: #4CC790;
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 3s ease-out forwards;
+}
+
+.circle-handle {
+    display: none;
+    position: absolute;
+    height: 29px;
+    width: 29px;
+    border-radius: 20px;
+    background: #4CC790;
+    bottom: 57px;
+    left: 156px;
+} 
+
+@keyframes progress {
+   0% {
+   stroke-dasharray: 0 100;  
+  } 
+}
