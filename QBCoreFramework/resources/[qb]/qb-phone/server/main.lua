@@ -256,9 +256,8 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         PhoneData.Adverts = Adverts
 
         local result = MySQL.query.await('SELECT * FROM player_contacts WHERE citizenid = ? ORDER BY name ASC', {Player.PlayerData.citizenid})
-        local Contacts = {}
         if result[1] ~= nil then
-            for k, v in pairs(result) do
+            for _, v in pairs(result) do
                 v.status = GetOnlineStatus(v.number)
             end
 
@@ -267,7 +266,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Player.PlayerData.citizenid})
         if invoices[1] ~= nil then
-            for k, v in pairs(invoices) do
+            for _, v in pairs(invoices) do
                 local Ply = QBCore.Functions.GetPlayerByCitizenId(v.sender)
                 if Ply ~= nil then
                     v.number = Ply.PlayerData.charinfo.phone
@@ -286,10 +285,10 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         local garageresult = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
         if garageresult[1] ~= nil then
-            for k, v in pairs(garageresult) do
+            for _, v in pairs(garageresult) do
                 local vehicleModel = v.vehicle
-                if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Garages[v.garage] ~= nil) then
-                    v.garage = Garages[v.garage].label
+                if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Config.Garages[v.garage] ~= nil) then
+                    v.garage = Config.Garages[v.garage].label
                     v.vehicle = QBCore.Shared.Vehicles[vehicleModel].name
                     v.brand = QBCore.Shared.Vehicles[vehicleModel].brand
                 end
@@ -319,11 +318,12 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         if Tweets ~= nil and next(Tweets) ~= nil then
             PhoneData.Tweets = Tweets
+            TWData = Tweets
         end
 
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
         if mails[1] ~= nil then
-            for k, v in pairs(mails) do
+            for k, _ in pairs(mails) do
                 if mails[k].button ~= nil then
                     mails[k].button = json.decode(mails[k].button)
                 end
@@ -347,7 +347,6 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         cb(PhoneData)
     end
 end)
-
 QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, cb, society, amount, invoiceId, sendercitizenid)
     local Invoices = {}
     local Ply = QBCore.Functions.GetPlayer(source)
@@ -618,7 +617,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                     VehicleGarage = v.garage
                 end
             end
-            
+
             local VehicleState = "In"
             if v.state == 0 then
                 VehicleState = "Out"
@@ -681,7 +680,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(sou
     end
     iban = newiban
     amount = tonumber(newAmount)
-    
+
     local Player = QBCore.Functions.GetPlayer(source)
     if (Player.PlayerData.money.bank - amount) >= 0 then
         local query = '%"account":"' .. iban .. '"%'
