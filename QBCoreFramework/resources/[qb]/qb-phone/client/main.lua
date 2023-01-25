@@ -2070,19 +2070,6 @@ RegisterNetEvent('qb-phone:refreshImages', function(images)
     PhoneData.Images = images
 end)
 
-RegisterNetEvent("qb-phone:client:CustomNotification", function(title, text, icon, color, timeout) -- Send a PhoneNotification to the phone from anywhere
-    SendNUIMessage({
-        action = "PhoneNotification",
-        PhoneNotify = {
-            title = title,
-            text = text,
-            icon = icon,
-            color = color,
-            timeout = timeout,
-        },
-    })
-end)
-
 
 -- Threads
 
@@ -2142,7 +2129,15 @@ end)
 local CurrentPings = {}
 
 RegisterNetEvent('qb-pings:client:DoPing', function(id)
-    TriggerServerEvent('qb-pings:server:SendPing', id)
+    local player = GetPlayerFromServerId(id)
+    local ped = GetPlayerPed(player)
+    local pos = GetEntityCoords(ped)
+    local coords = {
+        x = pos.x,
+        y = pos.y,
+        z = pos.z,
+    }
+        TriggerServerEvent('qb-pings:server:SendPing', id, coords)
 end)
 
 RegisterNetEvent('qb-pings:client:AcceptPing', function(PingData, SenderData)
@@ -2186,6 +2181,21 @@ RegisterNetEvent('qb-phone:ping:client:UiUppers', function(toggle)
         TriggerEvent("qb-hud:ping:client:ShowIcon", false)
     end
 end)
+
+
+RegisterNetEvent('qb-phone:client-annphonenumber', function(playerId, playerName, number)
+	local sourcePos = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(playerId)), false)
+    local pos = GetEntityCoords(PlayerPedId(), false)
+	local dist = #(pos - sourcePos)
+    if dist < 5.0 then
+		TriggerEvent('chat:addMessage', {
+			template = '<div class="chat-message" style="background-color: rgba(234, 135, 23, 0.50);">Number : <b>{0}</b></div>',
+			args = {" "..number}
+		})
+		
+    end
+end)
+
 
 RegisterNUICallback('CasinoAddBet', function(data)
     TriggerServerEvent('qb-phone:server:CasinoAddBet', data)

@@ -1,6 +1,9 @@
 fx_version 'cerulean'
 game 'gta5'
 
+author 'Zedd#1782'
+description 'qb-phone inspired by NoPixel'
+version '1.1'
 
 ui_page 'html/index.html'
 
