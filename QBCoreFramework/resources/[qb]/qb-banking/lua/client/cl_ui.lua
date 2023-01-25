@@ -43,6 +43,10 @@ local BankControlPress = false
 end
 
 
+RegisterNetEvent('qb-banking:openBankScreen', function()
+    ToggleUI()
+end)
+
 CreateThread(function()
     if Config.UseTarget then
         for k, v in pairs(Config.Zones) do
@@ -52,9 +56,14 @@ CreateThread(function()
                 minZ = v.minZ,
                 maxZ = v.maxZ
             }, {
-                ToggleUI()
+                options = {
+                    {
+                        type = "client",
+                        event = "qb-banking:openBankScreen",
+                        icon = "fas fa-university",
+                        label = "Access Bank",
+                    }
                 },
-                distance = 1.5
             })
         end
     else
