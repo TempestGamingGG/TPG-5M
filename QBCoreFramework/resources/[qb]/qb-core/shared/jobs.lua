@@ -194,6 +194,11 @@ QBShared.Jobs = {
 				isboss = true,
                 payment = 150
             },
+            ['5'] = {
+                name = 'Owner',
+				isboss = true,
+                payment = 175
+            },   
         },
 	},
 	['judge'] = {

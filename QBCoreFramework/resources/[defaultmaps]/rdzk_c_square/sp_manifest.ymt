@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CScenarioPointManifest>
+  <VersionNumber value="0" />
+  <RegionDefs>
+	    <Item type="CScenarioPointRegionDef">
+      <Name>compcache:/rdzk_c_square/downtown</Name>
+      <AABB>
+        <min x="-781.851" y="-1386.205" z="27.78532" w="0.000000" />
+        <max x= "385.6922" y="-408.0931" z="345.991669" w="0.000000" />
+      </AABB>
+    </Item>
+<Item type="CScenarioPointRegionDef">
+      <Name>compcache:/rdzk_c_square/pillbox_hill</Name>
+      <AABB>
+        <min x="-266.5604" y="-1123.077" z="8.148654" w="0.000000" />
+        <max x= "405.2953" y="-423.2211" z="178.1748" w="0.000000" />
+      </AABB>
+    </Item>
+	<Item type="CScenarioPointRegionDef">
+      <Name>compcache:/rdzk_c_square/legionsquare</Name>
+      <AABB>
+        <min x="151.2103" y="-997.326" z="27.9036217" w="0.000000" />
+        <max x= "243.7511" y="-852.425964" z="31.8042259" w="0.000000" />
+      </AABB>
+     </Item>
+  </RegionDefs>
+</CScenarioPointManifest>

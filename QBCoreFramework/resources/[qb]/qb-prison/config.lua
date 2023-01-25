@@ -93,43 +93,39 @@ Config.Locations = {
         },
         [2] = {
             animation = "lean",
-            coords = vector4(1650.812, 2540.582, 45.564, 230.436)
+            coords = vector4(1654.959, 2545.535, 45.564, 230.436)
         },
         [3] = {
             animation = "lean",
-            coords = vector4(1654.959, 2545.535, 45.564, 230.436)
-        },
-        [4] = {
-            animation = "lean",
             coords = vector4(1697.106, 2525.558, 45.564, 187.208)
         },
-        [5] = {
+        [4] = {
             animation = "sitchair4",
             coords = vector4(1673.084, 2519.823, 45.564, 229.542)
         },
-        [6] = {
+        [5] = {
             animation = "sitchair",
             coords = vector4(1666.029, 2511.367, 45.564, 233.888)
         },
-        [7] = {
+        [6] = {
             animation = "sitchair4",
-            coords = vector4(1691.229, 2509.635, 45.564, 52.432)
+            coords = vector4(1691.229, 2509.635, 45.564, 52.432) -- prison
+        },
+        [7] = {
+            animation = "finger2",
+            coords = vector4(1770.59, 2536.064, 45.564, 258.113)-- prison
         },
         [8] = {
-            animation = "finger2",
-            coords = vector4(1770.59, 2536.064, 45.564, 258.113)
+            animation = "smoke",
+            coords = vector4(1792.45, 2584.37, 45.56, 276.24) -- prison
         },
         [9] = {
             animation = "smoke",
-            coords = vector4(1792.45, 2584.37, 45.56, 276.24)
+            coords = vector4(1768.33, 2566.08, 45.56, 176.83) -- in prison
         },
         [10] = {
             animation = "smoke",
-            coords = vector4(1768.33, 2566.08, 45.56, 176.83)
-        },
-        [11] = {
-            animation = "smoke",
-            coords = vector4(1696.09, 2469.4, 45.56, 1.4)
+            coords = vector4(1696.09, 2469.4, 45.56, 1.4) -- in prison
         }
     }
 }

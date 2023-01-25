@@ -94,7 +94,7 @@ Config.GetStatus = function()
                 end
                 local myhunger = QBCore.Functions.GetPlayerData().metadata["hunger"]
                 local mythirst = QBCore.Functions.GetPlayerData().metadata["thirst"]
-                local stress = QBCore.Functions.GetPlayerData().metadata["stress"]
+                -- local stress = QBCore.Functions.GetPlayerData().metadata["stress"]
                 local hudStatus = Config.PlayerandMoneyHud
                 SendNUIMessage({food = myhunger, water = mythirst,stress = stress,hudStatus=hudStatus})
             end
