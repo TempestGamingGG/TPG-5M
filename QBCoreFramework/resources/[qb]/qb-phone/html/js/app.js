@@ -73,6 +73,8 @@ QB.Phone.Functions.SetupApplications = function(data) {
                 icon = '<img src="./img/apps/politie.png" class="police-icon">';
             }else if (app.app == "garage"){
                 icon = '<img src="./img/apps/garage_img.png" class="garage-icon">';
+            }else if (app.app == "phone"){
+                icon = '<img src="./img/apps/phone.png" class="phone-icon">';
             }else if (app.app == "advert"){
                 icon = '<img src="./img/apps/Advertisements.png" class="advert-icon">';
             }else if (app.app == "calculator"){
