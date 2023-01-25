@@ -28,6 +28,21 @@ RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
 end)
 
 
+local BankControlPress = false
+ local function BankControl()
+    CreateThread(function()
+        BankControlPress = true
+        while BankControlPress do
+            if IsControlPressed(0, 38) then
+                exports['qb-core']:KeyPressed()
+                ToggleUI()
+            end
+            Wait(0)
+        end
+    end)
+end
+
+
 CreateThread(function()
     if Config.UseTarget then
         for k, v in pairs(Config.Zones) do
