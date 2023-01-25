@@ -585,34 +585,20 @@ QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb
     end
 end)
 
-local function GetGarageNamephone(name)
-    for k,v in pairs(Garages) do
-        if k == name then
-            return true
-        end
-    end
-end
-
 QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     local Vehicles = {}
-    local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?',
-        {Player.PlayerData.citizenid})
-    if result[1] ~= nil then
-        for k, v in pairs(result) do
+    local vehdata
+    local result = exports.oxmysql:executeSync('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
+    if result[1] then
+        for _, v in pairs(result) do
             local VehicleData = QBCore.Shared.Vehicles[v.vehicle]
             local VehicleGarage = "None"
-            if v.garage ~= nil then
-                if GetGarageNamephone(v.garage) then
-                    if Garages[v.garage] or GangGarages[v.garage] or JobGarages[v.garage] then
-                        if Garages[v.garage] ~= nil then
-                            VehicleGarage = Garages[v.garage]["label"]
-                        elseif GangGarages[v.garage] ~= nil then
-                            VehicleGarage = GangGarages[v.garage]["label"]
-                        elseif JobGarages[v.garage] ~= nil then
-                            VehicleGarage = JobGarages[v.garage]["label"]
-                        end
-                    end
+            local enginePercent = round(v.engine / 10, 0)
+            local bodyPercent = round(v.body / 10, 0)
+            if v.garage then
+                if Garages[v.garage] then
+                    VehicleGarage = Garages[v.garage]["label"]
                 else
                     VehicleGarage = v.garage
                 end
@@ -625,8 +611,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                 VehicleState = "Impounded"
             end
 
-            local vehdata = {}
-            if VehicleData["brand"] ~= nil then
+            if VehicleData["brand"] then
                 vehdata = {
                     fullname = VehicleData["brand"] .. " " .. VehicleData["name"],
                     brand = VehicleData["brand"],
@@ -635,8 +620,9 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                     garage = VehicleGarage,
                     state = VehicleState,
                     fuel = v.fuel,
-                    engine = v.engine,
-                    body = v.body
+                    engine = enginePercent,
+                    body = bodyPercent,
+                    paymentsleft = v.paymentsleft
                 }
             else
                 vehdata = {
@@ -647,8 +633,9 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                     garage = VehicleGarage,
                     state = VehicleState,
                     fuel = v.fuel,
-                    engine = v.engine,
-                    body = v.body
+                    engine = enginePercent,
+                    body = bodyPercent,
+                    paymentsleft = v.paymentsleft
                 }
             end
             Vehicles[#Vehicles+1] = vehdata
