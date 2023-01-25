@@ -32,41 +32,41 @@ Citizen.CreateThread(function()
      if Config.Framework == "esx" then
         Citizen.Wait(1000)
         while true do
-             
+
                 if frameworkObject.GetPlayerData() then
                     while frameworkObject.GetPlayerData().job == nil do
                         Citizen.Wait(0)
-                    
+
                     end
-             
+
                     SendNUIMessage({
                         job = frameworkObject.GetPlayerData().job.label
                     })
                      for k, v in pairs(frameworkObject.GetPlayerData().accounts) do
-                       
+
                          if v.name == "money" then
-                         
-                             local money = v.money   
-                                                                 
+
+                             local money = v.money
+
                              SendNUIMessage({
                                  money = money
-                         
+
                              })
-                          
+
                         end
                         if v.name == "bank" then
                              local bank = v.money
 
                              SendNUIMessage({
-                             
+
                                  bank = bank
                              })
                          end
                      end
-                                 
-                   
+
+
                 end
-            
+
             Citizen.Wait(5000)
         end
      else
@@ -76,31 +76,31 @@ Citizen.CreateThread(function()
                 local Player = frameworkObject.Functions.GetPlayerData()
                 if Player then
                     if Player.job ~= nil then
-                                         
+
                     SendNUIMessage({
                         job = Player.job.label
                     })
                     end
                     if Player.money ~= nil then
-                    
+
                         SendNUIMessage({
-                          
+
                             money = Player.money.cash
-                    
+
                         })
                         SendNUIMessage({
-                          
+
                             bank = Player.money.bank
-                    
+
                         })
-                     
+
                     end
                 end
             end
             Citizen.Wait(5000)
         end
      end
-    
+
     end
 end)
 
@@ -108,7 +108,7 @@ Citizen.CreateThread( function()
 
     while true do
         Citizen.Wait(1)
-       
+
         local camRot = GetGameplayCamRot(0)
         heading = tostring(round(360.0 - ((camRot.z + 360.0) % 360.0)))
 
@@ -321,11 +321,11 @@ Citizen.CreateThread(function()
         Citizen.Wait(1000)
         local saat = GetClockHours()
         local min = GetClockMinutes()
-        if saat < 10 then 
-            saat = '0'..saat 
+        if saat < 10 then
+            saat = '0'..saat
         end
-        if min < 10 then 
-            min = '0'..min 
+        if min < 10 then
+            min = '0'..min
         end
         SendNUIMessage({min = min, saat=saat})
 
@@ -371,7 +371,7 @@ Citizen.CreateThread(function()
             if IsEntityInWater(player) then
                 oxygen = GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10
             else
-                oxygen = 100 - GetPlayerSprintStaminaRemaining(PlayerId())
+                oxygen = 80 - GetPlayerSprintStaminaRemaining(PlayerId())
             end
 
             if health ~= lastHealth or armour ~= lastArmour or oxygen ~= lastOxygen then
@@ -442,9 +442,9 @@ function CinematicShow(bool)
         for i = CinematicHeight, 0, -1.0 do
             Wait(10)
             w = i
-        end 
+        end
     else
-        for i = 0, CinematicHeight, 1.0 do 
+        for i = 0, CinematicHeight, 1.0 do
             Wait(10)
             w = i
         end
@@ -455,7 +455,7 @@ CreateThread(function()
     local minimap = RequestScaleformMovie("minimap")
     if not HasScaleformMovieLoaded(minimap) then
         RequestScaleformMovie(minimap)
-        while not HasScaleformMovieLoaded(minimap) do 
+        while not HasScaleformMovieLoaded(minimap) do
             Wait(1)
         end
     end
@@ -511,7 +511,7 @@ RegisterCommand("-handbrake", function()
     SendNUIMessage({handbrake = false})
 end)
 
-local useIndicator = true 
+local useIndicator = true
 RegisterNetEvent("codem-elegant-hud:UseIndicator")
 AddEventHandler("codem-elegant-hud:UseIndicator", function(toggle)
     useIndicator = toggle
@@ -574,7 +574,7 @@ RegisterCommand("rightindicator", function()
                 SetVehicleIndicatorLights(vehicle, 0, true)
                 SendNUIMessage({rightindicator = 'on'})
                 rightindicator = true
-    
+
             end
             hazardlights = false
         end
@@ -607,11 +607,11 @@ RegisterCommand("hazardlights", function()
                     SetVehicleIndicatorLights(vehicle, 1, true)
                     SendNUIMessage({rightindicator = 'on'})
                     SendNUIMessage({leftindicator = 'on'})
-    
+
                 elseif rightindicator then
                     SetVehicleIndicatorLights(vehicle, 0, true)
                     SendNUIMessage({rightindicator = 'on'})
-    
+
                 elseif leftindicator then
                     SetVehicleIndicatorLights(vehicle, 1, true)
                     SendNUIMessage({leftindicator = 'on'})
@@ -623,7 +623,7 @@ RegisterCommand("hazardlights", function()
 end)
 
 RegisterCommand('seatbelt', function()
-    
+
     if pedInVeh == true and  Config.RegisterKeyMapping == true  then
         local player = PlayerPedId()
         local vehicle = GetVehiclePedIsIn(player, false)
@@ -633,19 +633,19 @@ RegisterCommand('seatbelt', function()
             SendNUIMessage({seated = seatbeltIsOn})
             PlaySoundFrontend(-1, "Faster_Click", "RESPAWN_ONLINE_SOUNDSET", 1)
             if seatbeltIsOn == true then
-                if Config.VeniceNotify == true then 
-                
+                if Config.VeniceNotify == true then
+
                     Config.VeniceUseNotify(Config.Notify1.text,Config.Notify1.time,Config.Notify1.type )
-                else 
-                
+                else
+
                 ESX.ShowNotification(Config.Notify1.text)
                 end
-           
+
                 SetFlyThroughWindscreenParams(Config.SeatBeltMaxSpeed, 2.2352, 0.0, 0.0)
                 SetPedConfigFlag(PlayerPedId(), 32, false)
-            
+
             else
-                if Config.VeniceNotify == true then 
+                if Config.VeniceNotify == true then
                     Config.VeniceUseNotify(Config.Notify2.text,Config.Notify1.time,Config.Notify1.type )
                     SetFlyThroughWindscreenParams(Config.SeatBeltMinSpeed, 2.2352, 0.0, 0.0)
                     SetPedConfigFlag(PlayerPedId(), 32, true)
@@ -653,7 +653,7 @@ RegisterCommand('seatbelt', function()
                     ESX.ShowNotification(Config.Notify2.text)
                     SetFlyThroughWindscreenParams(Config.SeatBeltMinSpeed, 2.2352, 0.0, 0.0)
                     SetPedConfigFlag(PlayerPedId(), 32, true)
-                end                      
+                end
             end
         end
     end
@@ -673,22 +673,22 @@ RegisterCommand('cruise', function()
             local maxSpeed = cruiseIsOn and cruiseSpeed or GetVehicleHandlingFloat(vehicle, "CHandlingData", "fInitialDriveMaxFlatVel")
             SetEntityMaxSpeed(vehicle, maxSpeed)
             if cruiseIsOn == true then
-                if Config.VeniceNotify == true then 
-                 
+                if Config.VeniceNotify == true then
+
                     Config.VeniceUseNotify(Config.Notify3.text,Config.Notify3.time,Config.Notify3.type )
-                else 
+                else
 
                 ESX.ShowNotification(Config.Notify3.text)
                 end
-              
+
             else
-                if Config.VeniceNotify == true then 
-                 
+                if Config.VeniceNotify == true then
+
                     Config.VeniceUseNotify(Config.Notify4.text,Config.Notify4.time,Config.Notify4.type )
-                else 
+                else
                 ESX.ShowNotification(Config.Notify4.text)
                 end
-              
+
             end
             SendNUIMessage({cruised = cruiseIsOn})
         else
@@ -701,28 +701,28 @@ end, false)
 Citizen.CreateThread(function()
     if Config.RegisterKeyMapping == false then
         local wait = 1000
-        while true do   
+        while true do
             local player = PlayerPedId()
-            if pedInVeh == true then            
+            if pedInVeh == true then
                 local vehicle = GetVehiclePedIsIn(player, false)
                 if (GetPedInVehicleSeat(vehicle, -1) == player) then
                     wait = 1
-                    if IsControlJustPressed(0, Config.NotUseRegisterKeymappingCruiseKey) then 
+                    if IsControlJustPressed(0, Config.NotUseRegisterKeymappingCruiseKey) then
                         cruiseIsOn = not cruiseIsOn
                         local currSpeed = GetEntitySpeed(vehicle)
                         cruiseSpeed = currSpeed
                         local maxSpeed = cruiseIsOn and cruiseSpeed or GetVehicleHandlingFloat(vehicle, "CHandlingData", "fInitialDriveMaxFlatVel")
-                        SetEntityMaxSpeed(vehicle, maxSpeed)                    
+                        SetEntityMaxSpeed(vehicle, maxSpeed)
                         if cruiseIsOn == true then
-                            if Config.VeniceNotify == true then 
+                            if Config.VeniceNotify == true then
                                 Config.VeniceUseNotify(Config.Notify3.text,Config.Notify3.time,Config.Notify3.type )
-                            else 
+                            else
                                 ESX.ShowNotification(Config.Notify3.text)
                             end
                         else
-                            if Config.VeniceNotify == true then 
+                            if Config.VeniceNotify == true then
                                 Config.VeniceUseNotify(Config.Notify4.text,Config.Notify4.time,Config.Notify4.type )
-                            else 
+                            else
                                 ESX.ShowNotification(Config.Notify4.text)
                             end
                         end
@@ -741,7 +741,7 @@ end)
 
 Citizen.CreateThread(function()
     if Config.RegisterKeyMapping == false then
-        while true do 
+        while true do
             local wait = 1000
             if pedInVeh == true then
                 local player = PlayerPedId()
@@ -749,20 +749,20 @@ Citizen.CreateThread(function()
                 local vehicleClass = GetVehicleClass(vehicle)
                 if vehicleClass ~= 13 and vehicleClass ~= 8 then
                     wait = 1
-                    if IsControlJustPressed(0, Config.NotUseRegisterKeymappingSeatbeltKey ) then 
+                    if IsControlJustPressed(0, Config.NotUseRegisterKeymappingSeatbeltKey ) then
                         seatbeltIsOn = not seatbeltIsOn
                         SendNUIMessage({seated = seatbeltIsOn})
                         PlaySoundFrontend(-1, "Faster_Click", "RESPAWN_ONLINE_SOUNDSET", 1)
                         if seatbeltIsOn == true then
-                            if Config.VeniceNotify == true then 
+                            if Config.VeniceNotify == true then
                                 Config.VeniceUseNotify(Config.Notify1.text,Config.Notify1.time,Config.Notify1.type )
-                            else 
+                            else
                                 ESX.ShowNotification(Config.Notify1.text)
                             end
                             SetFlyThroughWindscreenParams(Config.SeatBeltMaxSpeed, 2.2352, 0.0, 0.0)
-                            SetPedConfigFlag(PlayerPedId(), 32, false)                        
+                            SetPedConfigFlag(PlayerPedId(), 32, false)
                         else
-                            if Config.VeniceNotify == true then 
+                            if Config.VeniceNotify == true then
                                 Config.VeniceUseNotify(Config.Notify2.text,Config.Notify1.time,Config.Notify1.type )
                                 SetFlyThroughWindscreenParams(Config.SeatBeltMinSpeed, 2.2352, 0.0, 0.0)
                                 SetPedConfigFlag(PlayerPedId(), 32, true)
@@ -770,7 +770,7 @@ Citizen.CreateThread(function()
                                 ESX.ShowNotification(Config.Notify2.text)
                                 SetFlyThroughWindscreenParams(Config.SeatBeltMinSpeed, 2.2352, 0.0, 0.0)
                                 SetPedConfigFlag(PlayerPedId(), 32, true)
-                            end                      
+                            end
                         end
                     end
                 end
@@ -799,11 +799,11 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
     end
     while true do
-    
+
         local player = PlayerPedId()
         local position = GetEntityCoords(player)
         local vehicle = GetVehiclePedIsIn(player, false)
-        
+
         if IsPedInAnyVehicle(player, false) then
             pedInVeh = true
             Citizen.Wait(1500)
@@ -814,7 +814,7 @@ Citizen.CreateThread(function()
             SendNUIMessage({ motor = motor})
         else
             local kimlik = GetPlayerServerId(NetworkGetEntityOwner(player))
-          
+
             SendNUIMessage({showVehiclePart = false , kimlik = kimlik})
             pedInVeh = false
             cruiseIsOn = false
@@ -825,17 +825,17 @@ Citizen.CreateThread(function()
                 DisplayRadar(true)
             end
             SendNUIMessage({seated = seatbeltIsOn, cruised = cruiseIsOn})
-        
+
         end
         if pedInVeh == true then
-         
-        
+
+
             local vehicleClass = GetVehicleClass(vehicle)
             if pedInVeh and GetIsVehicleEngineRunning(vehicle) and vehicleClass ~= 13 then
                 local prevSpeed = currSpeed
-                currSpeed = GetEntitySpeed(vehicle)			
+                currSpeed = GetEntitySpeed(vehicle)
                 local motor = GetIsVehicleEngineRunning(vehicle)
-    
+
                 SetPedConfigFlag(PlayerPedId(), 32, true)
                  local fuel = 0
                  if Config.useLegacyFuel then
@@ -843,11 +843,11 @@ Citizen.CreateThread(function()
                  else
                      fuel = GetVehicleFuelLevel(vehicle)
                  end
-            
+
                 local vhealth = GetEntityHealth(vehicle)
                 local locked = true
                 if GetVehicleDoorLockStatus(vehicle) == 1 or GetVehicleDoorLockStatus(vehicle) == 0 then locked = false end
-              
+
                 SendNUIMessage({showVehiclePart = true, motor = motor, fuel = fuel})
                 if vehicleClass == 8 then
                     SendNUIMessage({hideseat = true})
@@ -865,7 +865,7 @@ Citizen.CreateThread(function()
     while not nuiReady do
         Citizen.Wait(0)
     end
-    while true do 
+    while true do
         if pedInVeh then
             local player = PlayerPedId()
             local vehicle = GetVehiclePedIsIn(player, true)
@@ -874,7 +874,7 @@ Citizen.CreateThread(function()
             if vehicleLights == 1 and vehicleHighlights == 0 then
                 vehicleIsLightsOn = 'normal'
             elseif (vehicleLights == 1 and vehicleHighlights == 1) or (vehicleLights == 0 and vehicleHighlights == 1) then
-       
+
                 vehicleIsLightsOn = 'high'
             else
                 vehicleIsLightsOn = 'off'
@@ -901,7 +901,7 @@ Citizen.CreateThread(function()
         local vehicle = GetVehiclePedIsIn(player, false)
         if toggleHud == true and pedInVeh == true and vehicle then
             local currSpeed = GetEntitySpeed(vehicle)
-            local speed = ("%.1d"):format(math.ceil(currSpeed * speedMultiplier)) 
+            local speed = ("%.1d"):format(math.ceil(currSpeed * speedMultiplier))
             if tonumber(speed) > 0 then
                 local rpm =  GetVehicleEngineHealth(vehicle)
                 local maxSpeed = GetVehicleEstimatedMaxSpeed(vehicle)
@@ -922,7 +922,7 @@ end)
 
 
 RegisterNetEvent('SaltyChat_VoiceRangeChanged')
-AddEventHandler('SaltyChat_VoiceRangeChanged', function(voiceRange, index, availableVoiceRanges) 
+AddEventHandler('SaltyChat_VoiceRangeChanged', function(voiceRange, index, availableVoiceRanges)
 
 
     SendNUIMessage({talkingRadius = index  + 1 })
@@ -957,12 +957,12 @@ end)
 
 
 RegisterNetEvent('pma-voice:setTalkingMode')
-AddEventHandler('pma-voice:setTalkingMode', function(voiceMode) 
+AddEventHandler('pma-voice:setTalkingMode', function(voiceMode)
     SendNUIMessage({talkingRadius = voiceMode})
 end)
 
 RegisterNetEvent("mumble:SetVoiceData")
-AddEventHandler("mumble:SetVoiceData", function(player, key, value) 
+AddEventHandler("mumble:SetVoiceData", function(player, key, value)
     if GetPlayerServerId(NetworkGetEntityOwner(PlayerPedId())) == player and key == 'mode' then
          SendNUIMessage({talkingRadius = value})
     end
@@ -1017,11 +1017,11 @@ Citizen.CreateThread(function()
         Citizen.Wait(350)
         if IsPauseMenuActive() and not pauseActive then
             pauseActive = true
-            SendNUIMessage({pauseactive = true})            
+            SendNUIMessage({pauseactive = true})
         end
         if not IsPauseMenuActive() and  pauseActive then
             pauseActive = false
-            SendNUIMessage({pauseactive = false})            
+            SendNUIMessage({pauseactive = false})
         end
     end
 end)
@@ -1042,7 +1042,7 @@ Citizen.CreateThread(function()
                     DisplayRadar(false)
                 else
                     DisplayRadar(true)
-            
+
                 end
             end
         else
