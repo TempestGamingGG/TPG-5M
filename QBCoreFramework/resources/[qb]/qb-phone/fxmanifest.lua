@@ -1,7 +1,6 @@
 fx_version 'cerulean'
 game 'gta5'
 
-version 'Release'
 
 ui_page 'html/index.html'
 
