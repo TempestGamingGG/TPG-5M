@@ -41,7 +41,7 @@ AddEventHandler('qb-banking:client:bank:openUI', function() -- this one bank fro
 	if not bMenuOpen then
 		TriggerEvent('animations:client:EmoteCommandStart', {"ATM"})
 
-		QBCore.Functions.Progressbar("atm", "bankin", 4500, false, true, {
+		QBCore.Functions.Progressbar("atm", "Opening Bank", 4500, false, true, {
 			disableMovement = true,
 			disableCarMovement = true,
 			disableMouse = false,
@@ -51,7 +51,83 @@ AddEventHandler('qb-banking:client:bank:openUI', function() -- this one bank fro
 		end, function()
 			QBCore.Functions.Notify('Canceled', 'warning')
 			TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-		end, "fa-solid fa-dollar-sign")
+		end)
+	end
+end)
+RegisterNetEvent('qb-banking:client:atm:openUI')
+AddEventHandler('qb-banking:client:atm:openUI', function() -- this opens ATM
+	if not bMenuOpen then
+		TriggerEvent('animations:client:EmoteCommandStart', {"ATM"})
+
+		QBCore.Functions.Progressbar("atm", "Opening ATM", 4500, false, true, {
+			disableMovement = true,
+			disableCarMovement = true,
+			disableMouse = false,
+			disableCombat = true,
+		}, {}, {}, {}, function() -- Done
+			ToggleUI()
+		end, function()
+			QBCore.Functions.Notify('Canceled', 'warning')
+			TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+		end)
 	end
 end)
 
+
+local BankControlPress = false
+ local function BankControl()
+    CreateThread(function()
+        BankControlPress = true
+        while BankControlPress do
+            if IsControlPressed(0, 38) then
+                exports['qb-core']:KeyPressed()
+                TriggerEvent('qb-banking:client:bank:openUI')
+            end
+            Wait(0)
+        end
+    end)
+end
+
+CreateThread(function()
+    if Config.UseTarget then
+        for k, v in pairs(Config.Zones) do
+            exports["qb-target"]:AddBoxZone("Bank_"..k, v.position, v.length, v.width, {
+                name = "Bank_"..k,
+                heading = v.heading,
+                minZ = v.minZ,
+                maxZ = v.maxZ
+            }, {
+                options = {
+                    {
+                        type = "client",
+                        event = "qb-banking:client:bank:openUI",
+                        icon = "fas fa-university",
+                        label = "Access Bank",
+                    }
+                },
+                distance = 1.5
+            })
+        end
+    else
+        local bankPoly = {}
+        for k, v in pairs(Config.BankLocations) do
+            bankPoly[#bankPoly+1] = BoxZone:Create(vector3(v.x, v.y, v.z), 1.5, 1.5, {
+                heading = -20,
+                name="bank"..k,
+                debugPoly = false,
+                minZ = v.z - 1,
+                maxZ = v.z + 1,
+            })
+            local bankCombo = ComboZone:Create(bankPoly, {name = "bankPoly"})
+            bankCombo:onPlayerInOut(function(isPointInside)
+                if isPointInside then
+                    exports['qb-core']:DrawText(Lang:t('info.access_bank_key'),'left')
+                    BankControl()
+                else
+                    BankControlPress = false
+                    exports['qb-core']:HideText()
+                end
+            end)
+        end
+    end
+end)

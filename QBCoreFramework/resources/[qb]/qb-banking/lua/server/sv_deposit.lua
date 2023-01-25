@@ -25,7 +25,7 @@ AddEventHandler('qb-banking:server:Deposit', function(account, amount, note, fSt
         Wait(500)
         Player.Functions.AddMoney('bank', amt)
         RefreshTransactions(src)
-        AddTransaction(src, "personal", amount, "deposit", "N/A", (note ~= "" and note or "Deposited $"..format_int(amount).." cash."))
+        TriggerEvent("qb-banking:server:AddToMoneyLog", src, "personal", amount, "deposit", "N/A", (note ~= "" and note or "Deposited $"..format_int(amount).." cash."))
         return
     end
 
@@ -45,43 +45,45 @@ AddEventHandler('qb-banking:server:Deposit', function(account, amount, note, fSt
         end
 
 
-        local result = MySQL.Sync.fetchAll('SELECT * FROM society WHERE name= ?', {job.name})
+        local result = exports["oxmysql"]:executeSync('SELECT * FROM society WHERE name= ?', {job.name})
         local data = result[1]
 
         if data then
             local deposit = math.floor(amount)
 
             Player.Functions.RemoveMoney('cash', deposit)
-            TriggerEvent('qb-banking:society:server:DepositMoney', src, deposit, data.name)
-            AddTransaction(src, "business", amount, "deposit", job.label, (note ~= "" and note or "Deposited $"..format_int(amount).." cash into ".. job.label .."'s business account."))        end
+            TriggerEvent("qb-banking:server:AddToMoneyLog", src, "business", amount, "deposit", job.label, (note ~= "" and note or "Deposited $"..format_int(amount).." cash into ".. job.label .."'s business account."))
+
+            TriggerEvent('qb-banking:society:server:DepositMoney',src, deposit, data.name)
+        end
     end
 
     if account == "organization"  then
         local gang = Player.PlayerData.gang
         local gang_grade = gang.grade.name
     
-        if (not SimpleBanking.Config["gang_ranks"][string.lower(gang_grade)] and not SimpleBanking.Config["gang_ranks_overrides"][string.lower(gang.name)]) then
+        if (not SimpleBanking.Config["business_ranks"][string.lower(gang_grade)] and not SimpleBanking.Config["business_ranks_overrides"][string.lower(gang.name)]) then
             return
         end
     
         local low = string.lower(gang.name)
         local grade = string.lower(gang_grade)
     
-        if (SimpleBanking.Config["gang_ranks_overrides"][low] and not SimpleBanking.Config["gang_ranks_overrides"][low][grade]) then
+        if (SimpleBanking.Config["business_ranks_overrides"][low] and not SimpleBanking.Config["business_ranks_overrides"][low][grade]) then
             return
         end
     
     
-        local result = MySQL.Sync.fetchAll('SELECT * FROM society WHERE name= ?', {gang.name})
+        local result = exports["oxmysql"]:executeSync('SELECT * FROM society WHERE name= ?', {gang.name})
         local data = result[1]
     
         if data then
             local deposit = math.floor(amount)
     
             Player.Functions.RemoveMoney('cash', deposit)
+            TriggerEvent("qb-banking:server:AddToMoneyLog", src, "organization", amount, "deposit", gang.label, (note ~= "" and note or "Deposited $"..format_int(amount).." cash into ".. gang.label .."'s account."))
+    
             TriggerEvent('qb-banking:society:server:DepositMoney',src, deposit, data.name)
-            AddTransaction(src, "organization", amount, "deposit", gang.label, (note ~= "" and note or "Deposited $"..format_int(amount).." cash into ".. gang.label .."'s account."))
-            
         end
     end
 end)

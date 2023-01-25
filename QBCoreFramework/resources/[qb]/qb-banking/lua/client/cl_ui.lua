@@ -1,95 +1,36 @@
-bMenuOpen = false
+bMenuOpen = false 
 
 QBCore = exports['qb-core']:GetCoreObject()
 local isLoggedIn = false
-local PlayerJob = {}
-local PlayerGang = {}
+PlayerJob = {}
+PlayerGang = {}
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-    SendNUIMessage({type = "refresh_accounts"})
-end)
-
-RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
-    SendNUIMessage({type = "refresh_accounts"})
-end)
-
-RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
-    PlayerJob = QBCore.Functions.GetPlayerData().job
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+	PlayerJob = QBCore.Functions.GetPlayerData().job
     PlayerGang = QBCore.Functions.GetPlayerData().gang
+	isLoggedIn = true
+    SendNUIMessage({type = "refresh_accounts"})
+end)
+
+RegisterNetEvent('QBCore:Client:OnPlayerUnload')
+AddEventHandler('QBCore:Client:OnPlayerUnload', function()
+	isLoggedIn = false
+	PlayerJob = {}
+    SendNUIMessage({type = "refresh_accounts"})
+end)
+
+RegisterNetEvent('QBCore:Client:OnJobUpdate')
+AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
 	PlayerJob = JobInfo
     SendNUIMessage({type = "refresh_accounts"})
 end)
 
-RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
-    PlayerJob = QBCore.Functions.GetPlayerData().job
-    PlayerGang = QBCore.Functions.GetPlayerData().gang
+RegisterNetEvent('QBCore:Client:OnGangUpdate')
+AddEventHandler('QBCore:Client:OnGangUpdate', function(GangInfo)
     PlayerGang = GangInfo
     SendNUIMessage({type = "refresh_accounts"})
 end)
-
-
-local BankControlPress = false
- local function BankControl()
-    CreateThread(function()
-        BankControlPress = true
-        while BankControlPress do
-            if IsControlPressed(0, 38) then
-                exports['qb-core']:KeyPressed()
-                ToggleUI()
-            end
-            Wait(0)
-        end
-    end)
-end
-
-
-RegisterNetEvent('qb-banking:openBankScreen', function()
-    ToggleUI()
-end)
-
-CreateThread(function()
-    if Config.UseTarget then
-        for k, v in pairs(Config.Zones) do
-            exports["qb-target"]:AddBoxZone("Bank_"..k, v.position, v.length, v.width, {
-                name = "Bank_"..k,
-                heading = v.heading,
-                minZ = v.minZ,
-                maxZ = v.maxZ
-            }, {
-                options = {
-                    {
-                        type = "client",
-                        event = "qb-banking:openBankScreen",
-                        icon = "fas fa-university",
-                        label = "Access Bank",
-                    }
-                },
-            })
-        end
-    else
-        local bankPoly = {}
-        for k, v in pairs(Config.BankLocations) do
-            bankPoly[#bankPoly+1] = BoxZone:Create(vector3(v.x, v.y, v.z), 1.5, 1.5, {
-                heading = -20,
-                name="bank"..k,
-                debugPoly = false,
-                minZ = v.z - 1,
-                maxZ = v.z + 1,
-            })
-            local bankCombo = ComboZone:Create(bankPoly, {name = "bankPoly"})
-            bankCombo:onPlayerInOut(function(isPointInside)
-                if isPointInside then
-                    exports['qb-core']:DrawText(('[E] Bank'),'left')
-                    BankControl()
-                else
-                    BankControlPress = false
-                    exports['qb-core']:HideText()
-                end
-            end)
-        end
-    end
-end)
-
 
 function ToggleUI()
     local charinfo = QBCore.Functions.GetPlayerData().charinfo

@@ -1,11 +1,12 @@
-function AddTransaction(source, sAccount, iAmount, sType, sReceiver, sMessage, cb)
+RegisterNetEvent("qb-banking:server:AddToMoneyLog")
+AddEventHandler("qb-banking:server:AddToMoneyLog", function(source, sAccount, iAmount, sType, sReceiver, sMessage, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local CitizenId = Player.PlayerData.citizenid
 
     local iTransactionID = math.random(1000, 100000)
 
-    MySQL.Async.insert("INSERT INTO `transaction_history` (`citizenid`, `trans_id`, `account`, `amount`, `trans_type`, `receiver`, `message`) VALUES(?, ?, ?, ?, ?, ?, ?)", {
+    exports["oxmysql"]:insert("INSERT INTO `transaction_history` (`citizenid`, `trans_id`, `account`, `amount`, `trans_type`, `receiver`, `message`) VALUES(?, ?, ?, ?, ?, ?, ?)", {
         CitizenId,
         iTransactionID,
         sAccount,
@@ -16,7 +17,7 @@ function AddTransaction(source, sAccount, iAmount, sType, sReceiver, sMessage, c
     }, function()
         RefreshTransactions(src)
     end)
-end
+end)
 
 function RefreshTransactions(source)
     local src = source
@@ -26,7 +27,7 @@ function RefreshTransactions(source)
 
     if not Player then return end
 
-    local result = MySQL.Sync.fetchAll("SELECT * FROM transaction_history WHERE citizenid =  ? AND DATE(date) > (NOW() - INTERVAL "..SimpleBanking.Config["Days_Transaction_History"].." DAY)", {Player.PlayerData.citizenid})
+    local result = exports["oxmysql"]:executeSync("SELECT * FROM transaction_history WHERE citizenid =  ? AND DATE(date) > (NOW() - INTERVAL "..SimpleBanking.Config["Days_Transaction_History"].." DAY)", {Player.PlayerData.citizenid})
 
     if result ~= nil then
         TriggerClientEvent("qb-banking:client:UpdateTransactions", src, result)
