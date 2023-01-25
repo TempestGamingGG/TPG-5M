@@ -47,7 +47,7 @@ Config.Zones = {
 }
 
 Config.Blip = {
-    blipName = Lang:t('info.bank_blip'),
+    blipName = "bank",
     blipType = 108,
     blipColor = 2,
     blipScale = 0.55
