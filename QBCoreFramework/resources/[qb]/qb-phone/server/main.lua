@@ -256,8 +256,9 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         PhoneData.Adverts = Adverts
 
         local result = MySQL.query.await('SELECT * FROM player_contacts WHERE citizenid = ? ORDER BY name ASC', {Player.PlayerData.citizenid})
+        local Contacts = {}
         if result[1] ~= nil then
-            for _, v in pairs(result) do
+            for k, v in pairs(result) do
                 v.status = GetOnlineStatus(v.number)
             end
 
@@ -266,7 +267,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Player.PlayerData.citizenid})
         if invoices[1] ~= nil then
-            for _, v in pairs(invoices) do
+            for k, v in pairs(invoices) do
                 local Ply = QBCore.Functions.GetPlayerByCitizenId(v.sender)
                 if Ply ~= nil then
                     v.number = Ply.PlayerData.charinfo.phone
@@ -285,10 +286,10 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         local garageresult = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
         if garageresult[1] ~= nil then
-            for _, v in pairs(garageresult) do
+            for k, v in pairs(garageresult) do
                 local vehicleModel = v.vehicle
-                if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Config.Garages[v.garage] ~= nil) then
-                    v.garage = Config.Garages[v.garage].label
+                if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Garages[v.garage] ~= nil) then
+                    v.garage = Garages[v.garage].label
                     v.vehicle = QBCore.Shared.Vehicles[vehicleModel].name
                     v.brand = QBCore.Shared.Vehicles[vehicleModel].brand
                 end
@@ -318,12 +319,11 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         if Tweets ~= nil and next(Tweets) ~= nil then
             PhoneData.Tweets = Tweets
-            TWData = Tweets
         end
 
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
         if mails[1] ~= nil then
-            for k, _ in pairs(mails) do
+            for k, v in pairs(mails) do
                 if mails[k].button ~= nil then
                     mails[k].button = json.decode(mails[k].button)
                 end
@@ -347,6 +347,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         cb(PhoneData)
     end
 end)
+
 QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, cb, society, amount, invoiceId, sendercitizenid)
     local Invoices = {}
     local Ply = QBCore.Functions.GetPlayer(source)
@@ -441,14 +442,12 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPicture', function(source, c
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(_, cb, search)
-    search = escape_sqli(search)
+QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(source, cb, search)
+    local search = escape_sqli(search)
     local searchData = {}
     local ApaData = {}
     local query = 'SELECT * FROM `players` WHERE `citizenid` = "' .. search .. '"'
-    -- Split on " " and check each var individual
     local searchParameters = SplitStringToArray(search)
-    -- Construct query dynamicly for individual parm check
     if #searchParameters > 1 then
         query = query .. ' OR `charinfo` LIKE "%' .. searchParameters[1] .. '%"'
         for i = 2, #searchParameters do
@@ -463,7 +462,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(_, cb, s
     end
     local result = MySQL.query.await(query)
     if result[1] ~= nil then
-        for _, v in pairs(result) do
+        for k, v in pairs(result) do
             local charinfo = json.decode(v.charinfo)
             local metadata = json.decode(v.metadata)
             local appiepappie = {}
@@ -489,14 +488,14 @@ QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(_, cb, s
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', function(_, cb, search)
-    search = escape_sqli(search)
+QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', function(source, cb, search)
+    local search = escape_sqli(search)
     local searchData = {}
     local query = '%' .. search .. '%'
     local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE plate LIKE ? OR citizenid = ?',
         {query, search})
     if result[1] ~= nil then
-        for k, _ in pairs(result) do
+        for k, v in pairs(result) do
             local player = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {result[k].citizenid})
             if player[1] ~= nil then
                 local charinfo = json.decode(player[1].charinfo)
@@ -587,26 +586,39 @@ QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb
     end
 end)
 
-<<<<<<< Updated upstream
+local function GetGarageNamephone(name)
+    for k,v in pairs(Garages) do
+        if k == name then
+            return true
+        end
+    end
+end
+
 QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     local Vehicles = {}
-    local vehdata
-    local result = exports.oxmysql:executeSync('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
-    if result[1] then
-        for _, v in pairs(result) do
+    local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?',
+        {Player.PlayerData.citizenid})
+    if result[1] ~= nil then
+        for k, v in pairs(result) do
             local VehicleData = QBCore.Shared.Vehicles[v.vehicle]
             local VehicleGarage = "None"
-            local enginePercent = round(v.engine / 10, 0)
-            local bodyPercent = round(v.body / 10, 0)
-            if v.garage then
-                if Garages[v.garage] then
-                    VehicleGarage = Garages[v.garage]["label"]
+            if v.garage ~= nil then
+                if GetGarageNamephone(v.garage) then
+                    if Garages[v.garage] or GangGarages[v.garage] or JobGarages[v.garage] then
+                        if Garages[v.garage] ~= nil then
+                            VehicleGarage = Garages[v.garage]["label"]
+                        elseif GangGarages[v.garage] ~= nil then
+                            VehicleGarage = GangGarages[v.garage]["label"]
+                        elseif JobGarages[v.garage] ~= nil then
+                            VehicleGarage = JobGarages[v.garage]["label"]
+                        end
+                    end
                 else
                     VehicleGarage = v.garage
                 end
             end
-
+            
             local VehicleState = "In"
             if v.state == 0 then
                 VehicleState = "Out"
@@ -614,7 +626,8 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                 VehicleState = "Impounded"
             end
 
-            if VehicleData["brand"] then
+            local vehdata = {}
+            if VehicleData["brand"] ~= nil then
                 vehdata = {
                     fullname = VehicleData["brand"] .. " " .. VehicleData["name"],
                     brand = VehicleData["brand"],
@@ -623,9 +636,8 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                     garage = VehicleGarage,
                     state = VehicleState,
                     fuel = v.fuel,
-                    engine = enginePercent,
-                    body = bodyPercent,
-                    paymentsleft = v.paymentsleft
+                    engine = v.engine,
+                    body = v.body
                 }
             else
                 vehdata = {
@@ -636,9 +648,8 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
                     garage = VehicleGarage,
                     state = VehicleState,
                     fuel = v.fuel,
-                    engine = enginePercent,
-                    body = bodyPercent,
-                    paymentsleft = v.paymentsleft
+                    engine = v.engine,
+                    body = v.body
                 }
             end
             Vehicles[#Vehicles+1] = vehdata
@@ -648,81 +659,6 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
         cb(nil)
     end
 end)
-=======
--- local function GetGarageNamephone(name)
---     for k,v in pairs(Garages) do
---         if k == name then
---             return true
---         end
---     end
--- end
-
--- QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(source, cb)
---     local Player = QBCore.Functions.GetPlayer(source)
---     local Vehicles = {}
---     local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?',
---         {Player.PlayerData.citizenid})
---     if result[1] ~= nil then
---         for k, v in pairs(result) do
---             local VehicleData = QBCore.Shared.Vehicles[v.vehicle]
---             local VehicleGarage = "None"
---             if v.garage ~= nil then
---                 if GetGarageNamephone(v.garage) then
---                     if Garages[v.garage] or GangGarages[v.garage] or JobGarages[v.garage] then
---                         if Garages[v.garage] ~= nil then
---                             VehicleGarage = Garages[v.garage]["label"]
---                         elseif GangGarages[v.garage] ~= nil then
---                             VehicleGarage = GangGarages[v.garage]["label"]
---                         elseif JobGarages[v.garage] ~= nil then
---                             VehicleGarage = JobGarages[v.garage]["label"]
---                         end
---                     end
---                 else
---                     VehicleGarage = v.garage
---                 end
---             end
-            
---             local VehicleState = "In"
---             if v.state == 0 then
---                 VehicleState = "Out"
---             elseif v.state == 2 then
---                 VehicleState = "Impounded"
---             end
-
---             local vehdata = {}
---             if VehicleData["brand"] ~= nil then
---                 vehdata = {
---                     fullname = VehicleData["brand"] .. " " .. VehicleData["name"],
---                     brand = VehicleData["brand"],
---                     model = VehicleData["name"],
---                     plate = v.plate,
---                     garage = VehicleGarage,
---                     state = VehicleState,
---                     fuel = v.fuel,
---                     engine = v.engine,
---                     body = v.body
---                 }
---             else
---                 vehdata = {
---                     fullname = VehicleData["name"],
---                     brand = VehicleData["name"],
---                     model = VehicleData["name"],
---                     plate = v.plate,
---                     garage = VehicleGarage,
---                     state = VehicleState,
---                     fuel = v.fuel,
---                     engine = v.engine,
---                     body = v.body
---                 }
---             end
---             Vehicles[#Vehicles+1] = vehdata
---         end
---         cb(Vehicles)
---     else
---         cb(nil)
---     end
--- end)
->>>>>>> Stashed changes
 
 QBCore.Functions.CreateCallback('qb-phone:server:HasPhone', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
@@ -745,7 +681,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(sou
     end
     iban = newiban
     amount = tonumber(newAmount)
-
+    
     local Player = QBCore.Functions.GetPlayer(source)
     if (Player.PlayerData.money.bank - amount) >= 0 then
         local query = '%"account":"' .. iban .. '"%'
@@ -1294,12 +1230,10 @@ RegisterNetEvent('qb-pings:server:denyping', function()
     end
 end)
 
-RegisterNetEvent('qb-pings:server:SendPing', function(id)
+RegisterNetEvent('qb-pings:server:SendPing', function(id, coords)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Target = QBCore.Functions.GetPlayer(id)
-    local ped = GetPlayerPed(id)
-    local coords = GetEntityCoords(ped)
 
     if Target ~= nil then
         local OtherItem = Target.Functions.GetItemByName("phone")
@@ -1327,18 +1261,7 @@ end)
 QBCore.Commands.Add("p#", "Provide Phone Number", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local number = Player.PlayerData.charinfo.phone
-    local PlayerPed = GetPlayerPed(source)
-	local PlayerCoords = GetEntityCoords(PlayerPed)
-    for k, v in pairs(QBCore.Functions.GetPlayers()) do
-		local TargetPed = GetPlayerPed(v)
-		local dist = #(PlayerCoords - GetEntityCoords(TargetPed))
-		if dist < 3.0 then
-            TriggerClientEvent('chat:addMessage', v,  {
-                template = '<div class="chat-message" style="background-color: rgba(234, 135, 23, 0.50);">Number : <b>{0}</b></div>',
-                args = {number}
-            })
-        end
-    end
+	TriggerClientEvent("qb-phone:client-annphonenumber", -1, source, GetPlayerName(source), number)
 end)
 
 local CasinoTable = {}
@@ -1411,10 +1334,10 @@ end)
 RegisterNetEvent('qb-phone:server:SetJobJobCenter', function(data)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if Player.Functions.SetJob(data.job, 0) then
-        TriggerClientEvent('QBCore:Notify', src, 'Changed your job to: '..data.label)
+    if Player.Functions.SetJob(data.job) then
+        TriggerClientEvent('QBCore:Notify', src, 'Професията е сменена на: '..data.label)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Invalid Job...', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Не валидна професия...', 'error')
     end
 end)
 
@@ -1548,16 +1471,12 @@ RegisterNetEvent('qb-phone:server:wenmo_givemoney_toID', function(data)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local OtherPly = QBCore.Functions.GetPlayer(tonumber(data.ID))
-    local newAmount = tostring(data.Amount)
+    local Amount = tonumber(data.Amount)
     local Reason = data.Reason
-    for _, v in pairs(bannedCharacters) do
-        newAmount = string.gsub(newAmount, '%' .. v, '')
-    end
-    local amount = tonumber(newAmount)
     if OtherPly then
-        if (Ply.PlayerData.money.bank - amount) >= 0 then
-            Ply.Functions.RemoveMoney('bank', amount, "Wenmo: "..Reason)
-            OtherPly.Functions.AddMoney('bank', amount,"Wenmo: "..Reason)
+        if Ply.PlayerData.money.bank then
+            Ply.Functions.RemoveMoney('bank', Amount, "Wenmo: "..Reason)
+            OtherPly.Functions.AddMoney('bank', Amount,"Wenmo: "..Reason)
         else
             TriggerClientEvent('QBCore:Notify', src, 'You don\'t have enough money', 'error')
         end
