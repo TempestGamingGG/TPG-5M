@@ -69,12 +69,6 @@ Config.Zones = {
     }
 }
 
-Config.Blip = {
-    blipName = Lang:t('info.bank_blip'),
-    blipType = 108,
-    blipColor = 2,
-    blipScale = 0.55
-}
 
 Config.ATMModels = {
     "prop_atm_01",
