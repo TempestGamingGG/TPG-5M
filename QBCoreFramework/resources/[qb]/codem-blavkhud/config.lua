@@ -4,7 +4,7 @@
 ------------------------------------------------------General--------------------------------------------------------
 Config = {}
 Config.speedUnit = "mph" -- Default speed unit - kmh or mph
-Config.useLegacyFuel = false
+Config.useLegacyFuel = true
 Config.FuelExport = 'LegacyFuel'
 Config.SeatBeltMinSpeed = 15.6464
 Config.SeatBeltMaxSpeed = 55.6464

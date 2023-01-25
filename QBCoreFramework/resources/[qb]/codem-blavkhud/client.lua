@@ -305,9 +305,9 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
     end
     if Config.speedUnit == "kmh" then
-        speedMultiplier = 3.6
-        local kmh = 'kmh'
-        SendNUIMessage({changeSpeedUnit = 'kmh'})
+        speedMultiplier = 2.236936
+        local mph = 'mph'
+        SendNUIMessage({changeSpeedUnit = 'mph'})
     elseif Config.speedUnit == "mph" then
         speedMultiplier = 2.236936
         local mph = 'mph'
