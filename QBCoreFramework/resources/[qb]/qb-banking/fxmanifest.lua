@@ -2,13 +2,17 @@ fx_version 'cerulean'
 games { 'gta5' }
 
 shared_scripts {
+	'@qb-core/shared/locale.lua',
 	'config.lua',
     'lua/shared/sh_*.lua',
 }
 
 client_scripts {
 	'config.lua',
-    'lua/client/*.lua'
+	'@PolyZone/client.lua',
+    '@PolyZone/BoxZone.lua',
+    '@PolyZone/ComboZone.lua',
+    'lua/client/*.lua',
 }
 
 server_scripts {
