@@ -1,4 +1,4 @@
-bMenuOpen = false 
+bMenuOpen = false
 
 QBCore = exports['qb-core']:GetCoreObject()
 local isLoggedIn = false
@@ -26,6 +26,46 @@ RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
     PlayerGang = GangInfo
     SendNUIMessage({type = "refresh_accounts"})
 end)
+
+
+CreateThread(function()
+    if Config.UseTarget then
+        for k, v in pairs(Config.Zones) do
+            exports["qb-target"]:AddBoxZone("Bank_"..k, v.position, v.length, v.width, {
+                name = "Bank_"..k,
+                heading = v.heading,
+                minZ = v.minZ,
+                maxZ = v.maxZ
+            }, {
+                ToggleUI()
+                },
+                distance = 1.5
+            })
+        end
+    else
+        local bankPoly = {}
+        for k, v in pairs(Config.BankLocations) do
+            bankPoly[#bankPoly+1] = BoxZone:Create(vector3(v.x, v.y, v.z), 1.5, 1.5, {
+                heading = -20,
+                name="bank"..k,
+                debugPoly = false,
+                minZ = v.z - 1,
+                maxZ = v.z + 1,
+            })
+            local bankCombo = ComboZone:Create(bankPoly, {name = "bankPoly"})
+            bankCombo:onPlayerInOut(function(isPointInside)
+                if isPointInside then
+                    exports['qb-core']:DrawText(Lang:t('info.access_bank_key'),'left')
+                    BankControl()
+                else
+                    BankControlPress = false
+                    exports['qb-core']:HideText()
+                end
+            end)
+        end
+    end
+end)
+
 
 function ToggleUI()
     local charinfo = QBCore.Functions.GetPlayerData().charinfo

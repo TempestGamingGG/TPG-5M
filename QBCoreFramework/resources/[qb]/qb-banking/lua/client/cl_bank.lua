@@ -7,10 +7,10 @@ local banks = {
 	{name="Bank", id=108, x=-2962.582, y=482.627, z=15.703},
 	{name="Bank", id=108, x=-112.202, y=6469.295, z=31.626},
 	{name="Bank", id=108, x=314.187, y=-278.621, z=54.170},
-	{name="Bank", id=108, x=-351.534, y=-49.529, z=49.042}, 
+	{name="Bank", id=108, x=-351.534, y=-49.529, z=49.042},
 	{name="Bank", id=106, x=241.610, y=225.120, z=106.286},
 	{name="Bank", id=108, x=1175.064, y=2706.643, z=38.094}
-}	
+}
 
 
 RegisterNetEvent("qb-banking:client:ExtNotify")
@@ -41,7 +41,7 @@ AddEventHandler('qb-banking:client:bank:openUI', function() -- this one bank fro
 	if not bMenuOpen then
 		TriggerEvent('animations:client:EmoteCommandStart', {"ATM"})
 
-		QBCore.Functions.Progressbar("atm", "Otvaras Banku", 4500, false, true, {
+		QBCore.Functions.Progressbar("atm", "bankin", 4500, false, true, {
 			disableMovement = true,
 			disableCarMovement = true,
 			disableMouse = false,
