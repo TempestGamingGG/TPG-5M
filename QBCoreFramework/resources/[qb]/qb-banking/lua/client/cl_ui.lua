@@ -79,7 +79,7 @@ CreateThread(function()
             local bankCombo = ComboZone:Create(bankPoly, {name = "bankPoly"})
             bankCombo:onPlayerInOut(function(isPointInside)
                 if isPointInside then
-                    exports['qb-core']:DrawText(Lang:t('info.access_bank_key'),'left')
+                    exports['qb-core']:DrawText(('[E] Bank'),'left')
                     BankControl()
                 else
                     BankControlPress = false
