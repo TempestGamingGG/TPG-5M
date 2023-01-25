@@ -237,64 +237,115 @@ end)
 QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if not Player or not src then return end
-    local CID = Player.PlayerData.citizenid
+    if Player ~= nil then
+        local PhoneData = {
+            Applications = {},
+            PlayerContacts = {},
+            MentionedTweets = {},
+            Chats = {},
+            Hashtags = {},
+            Invoices = {},
+            Garage = {},
+            Mails = {},
+            Adverts = {},
+            CryptoTransactions = {},
+            Tweets = {},
+            Images = {},
+            InstalledApps = Player.PlayerData.metadata["phonedata"].InstalledApps
+        }
+        PhoneData.Adverts = Adverts
 
+        local result = MySQL.query.await('SELECT * FROM player_contacts WHERE citizenid = ? ORDER BY name ASC', {Player.PlayerData.citizenid})
+        if result[1] ~= nil then
+            for _, v in pairs(result) do
+                v.status = GetOnlineStatus(v.number)
+            end
 
-    local PhoneData = {
-        PlayerContacts = {},
-        Chats = {},
-        Hashtags = {},
-        Invoices = {},
-        Garage = {},
-        Mails = {},
-        Documents = {},
-        Adverts = Adverts,
-        Tweets = Tweets,
-        Images = {},
-        ChatRooms = {},
-    }
+            PhoneData.PlayerContacts = result
+        end
 
-    local result = exports.oxmysql:executeSync('SELECT * FROM player_contacts WHERE citizenid = ? ORDER BY name ASC', {CID})
-    if result[1] then
-        PhoneData.PlayerContacts = result
+        local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Player.PlayerData.citizenid})
+        if invoices[1] ~= nil then
+            for _, v in pairs(invoices) do
+                local Ply = QBCore.Functions.GetPlayerByCitizenId(v.sender)
+                if Ply ~= nil then
+                    v.number = Ply.PlayerData.charinfo.phone
+                else
+                    local res = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {v.sender})
+                    if res[1] ~= nil then
+                        res[1].charinfo = json.decode(res[1].charinfo)
+                        v.number = res[1].charinfo.phone
+                    else
+                        v.number = nil
+                    end
+                end
+            end
+            PhoneData.Invoices = invoices
+        end
+
+        local garageresult = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
+        if garageresult[1] ~= nil then
+            for _, v in pairs(garageresult) do
+                local vehicleModel = v.vehicle
+                if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Config.Garages[v.garage] ~= nil) then
+                    v.garage = Config.Garages[v.garage].label
+                    v.vehicle = QBCore.Shared.Vehicles[vehicleModel].name
+                    v.brand = QBCore.Shared.Vehicles[vehicleModel].brand
+                end
+
+            end
+            PhoneData.Garage = garageresult
+        end
+
+        local messages = MySQL.query.await('SELECT * FROM phone_messages WHERE citizenid = ?', {Player.PlayerData.citizenid})
+        if messages ~= nil and next(messages) ~= nil then
+            PhoneData.Chats = messages
+        end
+
+        if AppAlerts[Player.PlayerData.citizenid] ~= nil then
+            PhoneData.Applications = AppAlerts[Player.PlayerData.citizenid]
+        end
+
+        if MentionedTweets[Player.PlayerData.citizenid] ~= nil then
+            PhoneData.MentionedTweets = MentionedTweets[Player.PlayerData.citizenid]
+        end
+
+        if Hashtags ~= nil and next(Hashtags) ~= nil then
+            PhoneData.Hashtags = Hashtags
+        end
+
+        local Tweets = MySQL.query.await('SELECT * FROM phone_tweets WHERE `date` > NOW() - INTERVAL ? hour', {Config.TweetDuration})
+
+        if Tweets ~= nil and next(Tweets) ~= nil then
+            PhoneData.Tweets = Tweets
+            TWData = Tweets
+        end
+
+        local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
+        if mails[1] ~= nil then
+            for k, _ in pairs(mails) do
+                if mails[k].button ~= nil then
+                    mails[k].button = json.decode(mails[k].button)
+                end
+            end
+            PhoneData.Mails = mails
+        end
+
+        local transactions = MySQL.query.await('SELECT * FROM crypto_transactions WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
+        if transactions[1] ~= nil then
+            for _, v in pairs(transactions) do
+                PhoneData.CryptoTransactions[#PhoneData.CryptoTransactions+1] = {
+                    TransactionTitle = v.title,
+                    TransactionMessage = v.message
+                }
+            end
+        end
+        local images = MySQL.query.await('SELECT * FROM phone_gallery WHERE citizenid = ? ORDER BY `date` DESC',{Player.PlayerData.citizenid})
+        if images ~= nil and next(images) ~= nil then
+            PhoneData.Images = images
+        end
+        cb(PhoneData)
     end
-
-    local Invoices = exports.oxmysql:executeSync('SELECT * FROM phone_invoices WHERE citizenid = ?', {CID})
-    if Invoices[1] then
-        PhoneData.Invoices = Invoices
-    end
-
-    local Note = exports.oxmysql:executeSync('SELECT * FROM phone_note WHERE citizenid = ?', {CID})
-    if Note[1] then
-        PhoneData.Documents = Note
-    end
-
-    local messages = exports.oxmysql:executeSync('SELECT * FROM phone_messages WHERE citizenid = ?', {CID})
-    if messages and next(messages) then
-        PhoneData.Chats = messages
-    end
-
-    if Hashtags and next(Hashtags) then
-        PhoneData.Hashtags = Hashtags
-    end
-
-    local mails = exports.oxmysql:executeSync('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {CID})
-    if mails[1] then
-        PhoneData.Mails = mails
-    end
-
-    local images = exports.oxmysql:executeSync('SELECT * FROM phone_gallery WHERE citizenid = ? ORDER BY `date` DESC',{CID})
-    if images and next(images) then
-        PhoneData.Images = images
-    end
-
-    local chat_rooms = MySQL.query.await("SELECT id, room_code, room_name, room_owner_id, room_owner_name, room_members, is_pinned, IF(room_pin = '' or room_pin IS NULL, false, true) AS protected FROM phone_chatrooms")
-    if chat_rooms[1] then
-        PhoneData.ChatRooms = chat_rooms
-        ChatRooms = chat_rooms
-    end
-    cb(PhoneData)
 end)
 
 QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, cb, society, amount, invoiceId, sendercitizenid)
