@@ -55,7 +55,7 @@ if Config.UseTarget then
 end
 
 RegisterNetEvent('qb-atms:client:loadATM', function(cards)
-    if cards and cards[1] then
+    -- if cards and cards[1] then
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed, true)
         for _, v in pairs(Config.ATMModels) do
@@ -79,9 +79,9 @@ RegisterNetEvent('qb-atms:client:loadATM', function(cards)
                 end)
             end
         end
-    else
-        QBCore.Functions.Notify("Please visit a branch to order a card", "error")
-    end
+    -- else
+    --     QBCore.Functions.Notify("Please visit a branch to order a card", "error")
+    -- end
 end)
 
 -- Callbacks
