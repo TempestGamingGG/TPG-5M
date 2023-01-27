@@ -245,6 +245,11 @@ end, 'admin')
 
 -- Out of Character Chat
 
+
+QBCore.Commands.Add('emotes', "Emote Menu", {}, false, function(source)
+	TriggerEvent('dp:RecieveMenu')
+end)
+
 QBCore.Commands.Add('ooc', Lang:t("command.ooc.help"), {}, false, function(source, args)
     local message = table.concat(args, ' ')
     local Players = QBCore.Functions.GetPlayers()

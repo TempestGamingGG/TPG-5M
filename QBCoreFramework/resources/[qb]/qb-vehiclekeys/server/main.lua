@@ -77,7 +77,7 @@ function GiveKeys(id, plate)
 
     if not VehicleList[plate] then VehicleList[plate] = {} end
     VehicleList[plate][citizenid] = true
-    
+
     TriggerClientEvent('QBCore:Notify', id, Lang:t("notify.vgetkeys"))
     TriggerClientEvent('qb-vehiclekeys:client:AddKeys', id, plate)
 end
